@@ -24,7 +24,7 @@ blueprint:
     is_show: true
     open_new_tab: false
     text: 'Book Now'
-    link: '/#'
+    link: '/about'
     background_color: '#FCC5C0'
     color: '#fff'
 
@@ -87,22 +87,3 @@ _inputs:
   button.color:
     label: Button Text Color
     type: color
-
-    image:
-      label: Banner
-      type: image
-    title:
-      label: Title
-      type: markdown
-    content:
-      type: markdown
-      label: Content
-    button.text:
-      label: Button text
-      type: text
-    button.background_color:
-      type: color
-      label: Background color
-    button.link:
-      label: Button link
-      type: text
