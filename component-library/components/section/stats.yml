@@ -1,0 +1,33 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - content_blocks
+  label: Starts Section
+  description: Starts Section
+  icon: "cottage"
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  status: true
+  image_background: /images/hero-banner.jpg
+  list_item:
+    - title: Satisfied Users
+      count_up: 1000
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  status:
+    label: Active Section
+    type: toggle
+  image_background:
+    label: Content
+    type: image
+  list_item[*].title:
+    label: Title
+    type: markdown
+  list_item[*].count_up:
+    label: Count up
+    type: markdown
