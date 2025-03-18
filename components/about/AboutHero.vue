@@ -7,7 +7,7 @@
     :style="{ background: block.background }"
   >
     <div>
-      <div class="my__container row z-1 position-relative">
+      <div class="my__container row z-1 position-relative" itemscope itemtype="http://schema.org/AboutPage">
         <div class="p-2">
           <div
             class="heading-item text-center fs-5 fw-normal fontMontserrat colortx1"
@@ -16,13 +16,14 @@
           ></div>
         </div>
         <div class="p-2">
-          <h2
+          <div
+            itemprop="name"
             class="title-item text-center fs-1 fw-bold fontMontserrat colortx1"
             v-html="block.title"
-          ></h2>
+          ></div>
         </div>
         <div class="p-2">
-          <div class="desc-item" v-html="block.content"></div>
+          <div itemprop="description" class="desc-item" v-html="block.content"></div>
           <!-- <div class="desc-item" v-html="block.desc_start"></div>
           <ol class="">
             <li v-for="(item, index) in block.list_item" :key="index">

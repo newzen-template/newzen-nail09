@@ -7,21 +7,22 @@
   >
     <div
       class="my__container position-relative"
+      itemscope itemtype="http://schema.org/Service"
       style="border-radius: 30px 30px 30px 30px; opacity: 0.3s"
       :style="{
         backgroundImage: `url(${block.background_image})`,
         backgroundColor: block.background_color,
       }"
     >
+    <meta itemprop="serviceType" :content="businessType" />
+
       <div class="text-center">
         <div>
           <img style="margin-top: -50px" :src="block.image_double_heart" />
         </div>
 
-        
- 
-      </div>
 
+      </div>
     <div class="pd">
        <div class="swiper-container" >
         <!-- :autoplay="{delay: 5000, disableOnInteraction: false,}" -->
@@ -81,10 +82,15 @@
 <script lang="ts" setup>
 import {ref} from 'vue'
 import { Autoplay, EffectFade,Navigation,Pagination  } from 'swiper/modules';
+import SITE from '@/data/site.json';
+
 const swiperInstance = ref();
 const activeSlide = ref(0);
 const modules = [Autoplay, EffectFade,Navigation,Pagination ]
-
+const dataSite: any = ref(SITE);
+const firstKey = Object.keys(SITE)[0];
+const lengthType = dataSite.value[firstKey].business_type.split('/').length;
+const businessType = dataSite.value[firstKey].business_type.split('/')[lengthType - 1];
 const onSwiper = (e: any) => {
   swiperInstance.value = e;
 };
@@ -130,6 +136,7 @@ const props = defineProps<Props>();
   width: 695px !important; /* Đặt width cố định */
   margin:0 auto;
   text-align: center;
+  padding-top: 30px;
   padding-bottom:170px;
 }
 .d-flex{

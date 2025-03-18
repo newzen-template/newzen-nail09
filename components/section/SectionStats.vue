@@ -125,7 +125,6 @@ onMounted(() => {
   background-size: cover;
   background-color: rgba(255, 200, 200, 0.3); /* Màu phủ */
   background-blend-mode: overlay; /* Pha trộn màu và ảnh */
-  margin-bottom: 6em;
 }
 /* .backgroundOverlay{
   position: absolute;

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
   <section
-    class="py-2 cus-bg"
+    class="py-2 cus-bg position-relative"
     v-if="block.status"
     :data-cms-bind="dataBinding"
     :style="{ backgroundImage: `url(${block.background_image})` }"

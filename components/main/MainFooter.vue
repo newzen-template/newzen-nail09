@@ -12,6 +12,7 @@
               <h2 class="fs-1 fw-bold p-2" v-html="footerData.title"></h2>
               <div class="fz18 p-3" v-html="footerData.para"></div>
               <NuxtLink 
+               itemprop="url"
                 v-if="footerData.button.is_show" 
                 :to="footerData.button.link" :target="footerData.button.open_new_tab? '_blank' : '' "
                 :style="{backgroundColor: footerData.button.background_color,color: footerData.button.color}"
@@ -42,11 +43,15 @@
                 <h6 :style="{color: footerData.color_header}" class="fw-semibold mb-4 fz18 label-mb">
                   {{ footerData.bussiness.label }}
                 </h6>
-                <div class="mb-2" v-for="item, index in footerData.bussiness.list_bussiness" :key="index">
-                  <NuxtLink class="text-reset" v-if="item.link" :to="item.link"
-                    :target="item?.open_new_tab ? '_blank' : ''">
-                    {{ item.label }}
-                  </NuxtLink>
+                <div class="mb-1" itemprop="openingHours" :content="item.label + ' ' + item.time" v-for="item, index in footerData.bussiness.list_bussiness" :key="index">
+                  <div class=" d-flex flex-wrap gap-2">
+                    <div class="text-reset" v-if="item.label" >
+                      {{ item.label }}
+                    </div>
+                    <div class="text-reset" v-if="item.time" >
+                      {{ item?.time }}
+                    </div>
+                  </div>
         </div>
       </div>
     </div>
@@ -61,7 +66,7 @@
           {{ footerData.company.label }}
         </h6>
         <div class="mb-2" v-for="item, index in footerData.company.list_company" :key="index">
-          <NuxtLink class="text-reset cus-hover" v-if="item.link" :to="item.link"
+          <NuxtLink class="text-reset cus-hover" itemprop="url" v-if="item.link" :to="item.link"
             :target="item?.open_new_tab ? '_blank' : ''">
             {{ item.label }}
           </NuxtLink>
@@ -69,14 +74,16 @@
       </div>
       <!-- Info Column (7) -->
       <div class="col-12 col-sm-8 col-lg-7 col-7 col">
-        <h6  :style="{color: footerData.color_header}" class="fw-semibold mb-4 fz18">
+        <h6 :style="{color: footerData.color_header}" class="fw-semibold mb-4 fz18">
           {{footerData.info.label }}
         </h6>
-        <div   style="max-width:285px" class="mb-2 desc-info_mb" v-for="item, index in footerData.info.list_info" :key="index">
-          <NuxtLink class="text-reset cus-hover" v-if="item.link" :to="item.link"
+        <div style="max-width:285px;" class="mb-2 desc-info_mb" v-bind="item?.item_prop.includes('streetAddress') && handleRenderAttribute" 
+        v-for="item, index in footerData.info.list_info" :key="index" 
+        >
+          <NuxtLink class="text-reset cus-hover d-flex" itemprop="url" v-if="item.link" :to="item.link"
             :target="item?.open_new_tab ? '_blank' : ''" >
-            <img class="me-1" style="height: 14px" :src="item.image" :alt="item.label">
-            {{ item.label }}
+            <div style="width:14px;height: 14px;margin-right:10px"><img itemprop="image"  class="me-1" style="height: 14px" :src="item.image" :alt="item.label"></div>
+            <span :itemprop="item?.item_prop">{{ item.label }}</span>
           </NuxtLink>
         </div>
       </div>

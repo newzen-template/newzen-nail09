@@ -1,12 +1,13 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-  <section class="bg-img py-5" v-if="block.status" :data-cms-bind="dataBinding">
-    <div class="section_hero container-xl" style="padding: 80px 0 80px 0">
+  <section class="bg-img " v-if="block.status" :data-cms-bind="dataBinding">
+    <div class="section_hero container-xl" style="padding: 80px 0 0px 0">
       <div class="text-center mb">
         <div
           class="heading fs-5 fontMontserrat fw-regular mb-4"
           :style="{ color: block.color }"
-          v-html="block.heading.toUpperCase()"
+          style="text-transform:uppercase"
+          v-html="block.heading"
         ></div>
         <h2
           class="title fs-1 fontMontserrat fw-bold title-mb"
@@ -15,6 +16,7 @@
 
         <div class="position-relative">
           <img
+            itemprop="image"
             style="right: 0; margin-top: -2%; z-index: -1"
             class="position-absolute dot-ip"
             :src="block.image"
@@ -27,7 +29,9 @@
           class="col-12 col-sm-4 col-lg-4 col-4"
           v-for="(item, index) in block.list_service"
           :key="index"
+          itemscope itemtype="http://schema.org/Service"
         >
+          <meta itemprop="serviceType" :content="businessType" />
           <div
             class="service_item"
             :class="{ item: index === 1 || hoverIndex === index }"
@@ -38,10 +42,10 @@
               <div
                 class="text-center d-flex flex-column justify-content-center align-items-center pt-3"
               >
-                <img class="img-cus" :src="item.img" :alt="block.image_alt" />
-                <h3 class="fs-4 p-3">{{ item.title }}</h3>
-                <div class="p-2" v-html="item.desc"></div>
-                <NuxtLink class="btn-book fontMontserrat"
+                <img itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
+                <h3 itemprop="name" class="fs-4 p-3">{{ item.title }}</h3>
+                <div itemprop="description" class="p-2" v-html="item.desc"></div>
+                <NuxtLink itemprop="url" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
                     style="padding: 11px 30px"
@@ -58,6 +62,11 @@
 </template>
 
 <script lang="ts" setup>
+import SITE from '@/data/site.json';
+const dataSite: any = ref(SITE);
+const firstKey = Object.keys(SITE)[0];
+const lengthType = dataSite.value[firstKey].business_type.split('/').length;
+const businessType = dataSite.value[firstKey].business_type.split('/')[lengthType - 1];
 
 interface Props {
   dataBinding: any;
@@ -107,16 +116,28 @@ const hoverIndex = ref(-1);
   .dot-ip {
     margin-top: -30px !important;
   }
+  .heading{
+    margin-top: 80px;
+  }
 }
 @media (max-width: 768px) {
   .section_hero {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
+  .heading{
+    margin-top: 80px;
+  }
 }
 @media (max-width: 576px) {
   .title-mb {
     /* font-size: 26px !important; */
+  }
+    .heading{
+      margin-top: 80px;
+    }
+  .dot-ip{
+    display: none;
   }
 }
 </style>

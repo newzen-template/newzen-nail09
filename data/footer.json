@@ -40,18 +40,11 @@
       "list_bussiness": [
         {
           "label": "Monday – Saturday :",
-          "link": "/#",
-          "open_new_tab": false
+          "time": "10 AM - 8 PM"
         },
         {
-          "label": "10 AM - 8 PM",
-          "link": "/#",
-          "open_new_tab": false
-        },
-        {
-          "label": "Sunday Closed",
-          "link": "/#",
-          "open_new_tab": false
+          "label": "Sunday :",
+          "time": "Closed"
         }
       ]
     },
@@ -87,29 +80,32 @@
     },
     "info": {
       "label": "Informations",
-    "list_info": [
+      "list_info": [
         {
           "image": "/images/building-solid.svg",
           "label": "Boston, MA",
+          "item_prop": "streetAddress",
           "link": "/#",
           "open_new_tab": false
-          
         },
         {
           "image": "/images/enveloper-solid.svg",
           "label": "Lavilashbrow@gmail.com",
+          "item_prop": "email",
           "link": "/#",
           "open_new_tab": false
         },
         {
           "image": "/images/phone-solid.png",
           "label": "+1 617 - 595 - 2065",
+          "item_prop": "telephone",
           "link": "/#",
           "open_new_tab": false
         },
         {
           "image": "/images/map-pin-solid.png",
           "label": "627 Commonwealth Ave, Boston, MA 02215",
+          "item_prop": "streetAddress",
           "link": "/#",
           "open_new_tab": false
         }

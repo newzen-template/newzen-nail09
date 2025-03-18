@@ -43,7 +43,7 @@ content_blocks:
       background_color: '#FCC5C0'
       color: '#fff'
     
-  - _block_name: service/hero
+  - _block_name: section/reviewservice
     status: true
     color: "#FCC5C0"
     background_color: '#C4C4C4'

@@ -33,7 +33,7 @@ content_blocks:
 
     
 
-  - _block_name: section/serviceitem
+  - _block_name: section/hairservice
     status: true
     title: 'Facial Hair Removal'
     service: 'WAXING - FACE'
@@ -65,7 +65,7 @@ content_blocks:
          member: '$35'
 
 
-  - _block_name: section/serviceitem
+  - _block_name: section/hairservice
     status: true
     title: 'Body Hair Removal'
     service: 'WAXING - FACE'
@@ -96,7 +96,7 @@ content_blocks:
          price: '$50'
          member: '$35' 
    
-  - _block_name: section/serviceitem
+  - _block_name: section/hairservice
     status: true
     title: 'Men Waxing'
     service: 'WAXING - FACE'

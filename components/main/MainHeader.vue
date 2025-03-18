@@ -7,8 +7,9 @@
       >
         <div class="col-lg-3 d-lg-block d-none">
           <!-- Logo Desktop -->
-          <NuxtLink :to="`${homeUrl}`" class="d-block">
+          <NuxtLink itemprop="url" :to="`${homeUrl}`" class="d-block">
             <img
+              itemprop="logo"
               :src="headerData.logo"
               :alt="headerData.alt_image"
               class=" "
@@ -20,6 +21,7 @@
           class="col-lg-8 col-12 px-0 d-flex justify-content-lg-end justify-content-between align-items-center h-100"
         >
           <NuxtLink
+            itemprop="url"
             :to="`${homeUrl}`"
             class="d-lg-none d-block col-6"
             style="max-width: 140px"
@@ -59,12 +61,13 @@
             class="menu-mobile-item position-relative "
             @click="toggleSubMenu(index)"
             :class="{ active: isActiveMenuItem(header.link) }"
-
+            itemprop="name"
             
             >
           <NuxtLink
             class="text-black d-block font__size__base text-decoration-none h-100"
             style="line-height: 40px;padding-left:20px;"
+            itemprop="url"
             :title="header.text"
             :target="header?.open_new_tab ? '_blank' : ''"
             :to="header.link"
@@ -85,6 +88,7 @@
             <ul>
               <li v-for="(child, index) in header.item_child" :key="index">
                 <NuxtLink
+                  itemprop="url"
                   :to="child.link"
                   :title="child.text"
                   :target="child?.open_new_tab ? '_blank' : ''"
@@ -109,12 +113,14 @@
               v-for="(header, index) in headerData.items"
               :key="index"
               class="custom_menu font__size__base px-2 pl position-relative"
+              itemprop="name"
               :class="{
                 active: isActiveMenuItem(header.link),
               }"
             >
               <NuxtLink
-                :to="header.link"
+                itemprop="url"
+                :to="header.link" 
                 :title="header.text"
                 :target="header?.open_new_tab ? '_blank' : ''"
                 class="h-100 text-decoration-none d-block fw-medium"
@@ -138,6 +144,7 @@
                       :key="index"
                     >
                       <NuxtLink
+                        itemprop="url"
                         :to="child.link"
                         :title="child.text"
                         :target="child?.open_new_tab ? '_blank' : ''"
@@ -153,6 +160,7 @@
           </ul>
 
           <NuxtLink
+            itemprop="url"
             :to="headerData.button.link"
             :target="headerData.button.open_new_tab ? '_blank' : ''"
             class="btn-book hidden-nav"

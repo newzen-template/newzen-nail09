@@ -50,7 +50,7 @@
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                   }"
-                  :autoplay="{delay: 50000000, disableOnInteraction: false,}"
+                  :autoplay="{delay: 2000, disableOnInteraction: false,}"
                   :loop="true"
                   :breakpoints="{
                     1025: { slidesPerView:3 },
@@ -182,7 +182,7 @@ const props = defineProps<Props>();
 }
 .py {
   padding-top: 9rem !important;
-  padding-bottom: 9rem !important;
+  padding-bottom: 6em !important;
  
 }
 .pd{

@@ -177,18 +177,18 @@ content_blocks:
      -   title: 'New Client Refill'
          desc: >-
           <p>Artist 1: $225 <br>Artist 2: $250<br>Artist 3: $275</p>  
-  - _block_name: section/eyelashservice
+  - _block_name: service/item
     status: true
-    title_lashTint: 'Lash RefillsLash Lifts & Tints'
+    title: 'Lash RefillsLash Lifts & Tints'
     image: /images/brow-tint.png
-    desc_lashTint: 'A lash L will dye and darken your natural lashes to create a balanced, effortless look.<br> A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.'                  
-    desc2_lashTint: 'We use safe, high-quality, award-winning materials to enhance your natural beauty.'
+    desc: 'A lash L will dye and darken your natural lashes to create a balanced, effortless look.<br> A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.'                  
+    desc2: 'We use safe, high-quality, award-winning materials to enhance your natural beauty.'
     desc_link: 'Click here to view our work..'
     link: 'https://www.youtube.com/shorts/-62EiN8nscE'
-    service_lashTint: 'Serivce'
-    regular_lashTint: 'Time'
-    member_lashTint: 'Price'
-    list_item_lashTint:
+    service: 'Serivce'
+    regular: 'Time'
+    member: 'Price'
+    list_item:
      -   title: 'Lash Tint'
          price: '15 minutes'
          member: '$40'
@@ -200,13 +200,15 @@ content_blocks:
      -   title: 'Lash Lift & Tint'
          price: '75 Minutes'
          member: '$120'
-    title_other_service: 'Supplemental Services'
-    image_other_service: /images/brow-tint.png
-    desc_other_service: 'Description of services. Include any common information regarding the procedures.'               
-    service_other_service: 'Service'
-    regular_other_service: 'Time'
-    member_other_service: 'Price'
-    list_item_other_service:
+  - _block_name: service/item
+    status: true
+    title: 'Supplemental Services'
+    image: /images/brow-tint.png
+    desc: 'Description of services. Include any common information regarding the procedures.'               
+    service: 'Service'
+    regular: 'Time'
+    member: 'Price'
+    list_item:
      -   title: 'Lash Removal'
          price: '15 minutes'
          member: '$60'
