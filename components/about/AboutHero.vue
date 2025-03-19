@@ -22,7 +22,7 @@
             v-html="block.title"
           ></div>
         </div>
-        <div class="p-2">
+        <div style="padding:1rem !important" class="p-2">
           <div itemprop="description" class="desc-item" v-html="block.content"></div>
           <!-- <div class="desc-item" v-html="block.desc_start"></div>
           <ol class="">

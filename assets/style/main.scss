@@ -108,8 +108,8 @@ html {
   }
 }
 .my__container{
-  max-width: 1140px;
-  margin: 0 auto;
+  max-width: 1140px !important;
+  margin: 0 auto !important;
 }
 .fz18{
   font-size: 18px  ;
