@@ -30,4 +30,4 @@ _inputs:
     type: markdown
   list_item[*].count_up:
     label: Count up
-    type: markdown
+    type: text

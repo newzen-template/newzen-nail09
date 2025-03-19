@@ -17,24 +17,7 @@
       "link":"/#",
       "color": "#fff"
     },
-    "contact": [
-      {
-        "is_show": true,
-        "label": "demo@gmail.com",
-        "link": "/#",
-        "open_new_tab": false,
-        "image": "/images/MdiEmail.svg",
-        "image_alt": ""
-      },
-      {
-        "is_show": true,
-        "label": "DTsmart, Go Vap, Viet Nam",
-        "link": "/#",
-        "open_new_tab": false,
-        "image": "/images/MdiMapMarker.svg",
-        "image_alt": ""
-      }
-    ],
+
     "bussiness": {
       "label": "Business Hour",
       "list_bussiness": [

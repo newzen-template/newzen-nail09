@@ -126,11 +126,11 @@ content_blocks:
     image_background: /images/hero-banner.jpg
     list_item:
       - title: Satisfied Users
-        count_up: 100
+        count_up: '100'
       - title: Trained Experts
-        count_up: 54
+        count_up: '54'
       - title: Nice Treatment
-        count_up: 65
+        count_up: '65'
       - title: Procedures
-        count_up: 74
+        count_up: '74'
   

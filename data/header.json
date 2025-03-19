@@ -1,34 +1,5 @@
 {
   "en":{ 
-    "logo": "/images/hero-title.png",
-    "logo_alt": "Logo alt",
-    "logo_close": "/images/xmark-solid.svg",
-    "background_color" : "#FFFFFF",
-    "image_caret_down": "/images/caret-down-solid.png",
-    "alt_caret": "image_alt",
-    "header_top":{
-      "background_color" : "#183029",
-      "phone" :{
-        "image" : "/images/icon_phone.png",
-        "image_alt" : "",
-        "label": "(+84) 909 878 182"
-      },
-      "social":[
-        {
-          "image" : "/images/icon_fb.png",
-          "image_alt" : "FaceBook",
-          "link":"/#",
-          "open_new_tab": true
-        },
-        {
-          "image" : "/images/icon_yt.png",
-          "image_alt" : "FaceBook",
-          "link":"/#",
-          "open_new_tab": true
-        }
-      ]
-
-    },
     "items": [
       {
         "link": "/",
@@ -74,10 +45,7 @@
         "open_new_tab": false
       } 
     ],
-    "search":{
-      "is_show" : true,
-      "title": "Search..."
-    },
+ 
     "button":{
       "text": "Book Now",
       "is_show": true,
@@ -117,3 +85,4 @@
     }
   }
 }
+

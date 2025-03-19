@@ -12,7 +12,7 @@ blueprint:
   background_image: /images/eyelash-extension-procedure-1-2.jpg
   background_color: '#fcc5c0'
   heading: 'Eyelash Extension'
-  color: '#fff'
+  color: '#ffffff'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
