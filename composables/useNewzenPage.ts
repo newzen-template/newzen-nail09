@@ -1,3 +1,4 @@
+import NewzenConnector from 'newzen-connector';
 import 'newzen-connector/dist/style.css';
 import { ref, onMounted } from 'vue';
 import { useRoute, useHead, createError } from '#imports';
