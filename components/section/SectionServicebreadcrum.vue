@@ -25,7 +25,6 @@ interface Props {
   block: any;
 }
 const props = defineProps<Props>();
-console.log(props);
 </script>
 
 <style lang="scss" scoped>

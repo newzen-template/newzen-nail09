@@ -29,7 +29,7 @@ blueprint:
       text: 'Learn More'
       link: '/#'
       background_color: '#FCC5C0'
-      color: '#fff'
+      color: '#ffffff'
       open_new_tab: false
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

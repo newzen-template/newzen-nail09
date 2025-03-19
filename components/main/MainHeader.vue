@@ -206,7 +206,6 @@ const langCurrent = ref(langDefault.value)
 
 const homeUrl = ref('/')
 const headerData: any = ref(header.en)
-console.log(headerData.value)
 
 function renderHeader() {
   for (const key of Object.keys(header)) {

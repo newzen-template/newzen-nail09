@@ -8,10 +8,10 @@
     <div class="my__container row d-flex" itemscope itemtype="http://schema.org/AboutPage">
        <div class=" col-12 col-sm-6 col-lg-6 col-6 text-end position-relative pd">
          <img itemprop="image" class="me-3 w-ip" :src="block.list_img.image_big" />
-         <img class="position-absolute z-2 img-mb" style="left: -8%;top:-22%" :style="{top: block.top_image_large}":src="block.list_img.image_large" :alt="block.image_large_alt">
-         <img class="position-absolute" style="left: 26%;top:-22%;" :src="block.list_img.image_leaf" :alt="block.list_img.image_large_alt">
-         <img class="position-absolute"  style="right:8%;top:-25%;" :src="block.list_img.image_dot1" :alt="block.list_img.image_large_alt">
-         <img class="position-absolute" style="left:3%;bottom:-8%;" :src="block.list_img.image_dot2" :alt="block.list_img.image_large_alt">
+         <img class="position-absolute z-2 img-mb" style="left: -8%;top:-20%;":src="block.list_img.image_large" :alt="block.image_large_alt">
+         <img class="position-absolute" style="left: 26%;top:-20%;"  src="/images/hero-leafs.png" :alt="block.list_img.image_large_alt">
+         <img class="position-absolute"  style="right:8%;top:-25%;"  src="/images/hero-dots-1.png" :alt="block.list_img.image_large_alt">
+         <img class="position-absolute" style="left:3%;bottom:-8%;" src="/images/hero-dots-2.png" :alt="block.list_img.image_large_alt">
  
        </div>
        <div class=" col-12 col-sm-6 col-lg-6 col-6 d-flex flex-column align-items-start gap-4 justify-content-center" style="padding:10px">

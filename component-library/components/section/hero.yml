@@ -26,7 +26,7 @@ blueprint:
     text: 'Book Now'
     link: '/about'
     background_color: '#FCC5C0'
-    color: '#fff'
+    color: '#ffffff'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

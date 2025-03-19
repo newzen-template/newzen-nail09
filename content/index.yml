@@ -29,12 +29,12 @@ content_blocks:
       text: 'Book Now'
       link: '/about'
       background_color: '#FCC5C0'
-      color: '#fff'
+      color: '#ffffff'
       # ------------------Service-------------------------
 
   - _block_name: section/treatment
     status: true
-    background: '#fff'
+    background: '#ffffff'
     list_treatment:
       - title: 'Classic Lashes'
         desc: 'Classic lashes are a type of eyelash extensions where one individual lash extension is glued onto one natural lash. This creates a natural, enhanced look by adding length and thickness to the lashes.'
@@ -61,22 +61,12 @@ content_blocks:
 # ------------------About-------------------------
   - _block_name: section/about
     status: true
-    top_image_large: '-20%'
-    top_image_leaf: '-20%'
-    top_image_dot1: '-20%'
-    bottom_image_dot2: '-7%'
     color: "#FCC5C0"
     list_img:
         image_large: /images/hero-face3.jpg
         image_large_alt: 'hero-face3'
         image_big: /images/hero-face4.jpg
         image_big_alt: 'hero-face4'
-        image_leaf: /images/hero-leafs.png
-        image_leaf_alt: 'hero-leaf'
-        image_dot1: /images/hero-dots-1.png
-        image_dot1_alt: 'hero-dots-1'
-        image_dot2: /images/hero-dots-2.png
-        image_dot2_alt: 'hero-dots-2'
     session: 'About Us'
     title: 'Lavilash Extension Salon'
     desc: 'Lavilash Extension Salon is a boutique lash studio located in the heart of Boston, Massachusetts. The salon offers a variety of high-quality eyelash extensions services, including classic, hybrid, and volume lash extensions. Their team of experienced lash technicians is dedicated to providing clients with customized lash designs that suit their individual needs and preferences.'
