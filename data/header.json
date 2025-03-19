@@ -3,7 +3,7 @@
     "logo": "/images/hero-title.png",
     "logo_alt": "Logo alt",
     "logo_close": "/images/xmark-solid.svg",
-    "background_color" : "#ffffff",
+    "background_color" : "",
     "image_caret_down": "/images/caret-down-solid.png",
     "alt_caret": "image_alt",
     "items": [

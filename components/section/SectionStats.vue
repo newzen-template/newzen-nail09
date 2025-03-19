@@ -4,7 +4,7 @@
     :data-cms-bind="dataBinding"
     :style="{ backgroundImage: `url(${block.image_background})`,backgroundColor: block.background_color }"
     style="background-position: center"
-    class="wh"
+    class="wh count-section"
     
   >
     <div style="width: 100%; height: 100%" class="">
@@ -20,7 +20,7 @@
                 :key="index"
                 class="col-6 col-sm-3 col-lg-3 col-3"
               >
-                <div class="fs-69 counter" :data-target="item.count_up"></div>
+                <div :style="{color: block.color}" class="fs-69 counter" :data-target="item.count_up"></div>
                 <h3 class="fs-5 desc-mb">{{ item.title }}</h3>
               </div>
 
@@ -91,23 +91,44 @@ const props = defineProps<Props>();
 // });
 
 onMounted(() => {
-  const counters = document.querySelectorAll('.counter')
-  counters.forEach((counter: any) => {
-    counter.innerText = '0';
+  const counters = document.querySelectorAll('.counter');
+
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    let current = 0;
+    const increment = target / 100; // Điều chỉnh tốc độ đếm
+
     const updateCounter = () => {
-      const target = +counter.getAttribute('data-target')
-      const c = +counter.innerText
-      const increment = target / 500
-      if (c < target) {
-        counter.innerText = `${Math.ceil(c + increment)}`
-        setTimeout(updateCounter, 1)
+      current += increment;
+      counter.innerText = Math.ceil(current).toLocaleString();
+
+      if (current < target) {
+        requestAnimationFrame(updateCounter);
       } else {
-        counter.innerText = `${target}`
+        counter.innerText = target.toLocaleString(); // Đảm bảo đạt đến giá trị đích
       }
     };
-    updateCounter()
-  })
+    updateCounter();
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target); // Chỉ đếm một lần
+        }
+      });
+    },
+    { threshold: 0.1 } // Kích hoạt khi phần tử hiển thị ít nhất 10%
+  );
+
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
 });
+
+
 </script>
 
 <style lang="scss" scoped>

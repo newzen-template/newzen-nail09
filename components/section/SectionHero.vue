@@ -171,7 +171,6 @@ const resetTransform = () => {
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 128px;
-  padding-bottom: 128px;
 }
 .color-content {
   color: var(--color-text);

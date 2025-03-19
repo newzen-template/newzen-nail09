@@ -84,7 +84,7 @@ content_blocks:
 # ------------------Stats-------------------------
   - _block_name: section/stats
     status: true
-    color: "#FCC5C0"
+    color: '#3C3C3C'
     background_color: "#FCC5C0"
     image_background: /images/hero-banner.jpg
     list_item:
