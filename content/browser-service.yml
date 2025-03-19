@@ -14,6 +14,7 @@ content_blocks:
     background_image: /images/cropped-shot-of-woman-with-makeup-brush-for-eyebrows.jpg
     background_color: '#fcc5c0'
     title: 'Brow Services'
+    color: '#ffffff'
     
   - _block_name: section/treatmentbrow
     status: true

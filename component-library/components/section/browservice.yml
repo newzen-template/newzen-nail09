@@ -20,7 +20,7 @@ blueprint:
   list_item:
     -   title: 'Brow Tints'
         price: '$20'
-        member: '$'
+        member: '$40'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -46,16 +46,16 @@ _inputs:
     type: markdown
   service:
     label: Service Column Title
-    type: markdown
+    type: text
   regular:
     label: Regular Price Column Title
-    type: markdown
+    type: text
   member:
     label: Membership Price Column Title
-    type: markdown
+    type: text
   list_item[*].title:
     label: Service Name
-    type: markdown
+    type: text
   list_item[*].price:
     label: Regular Price
     type: text

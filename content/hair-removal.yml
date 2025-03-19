@@ -14,7 +14,7 @@ content_blocks:
     background_image: /images/hot-hair-removal-depilation-female-skin-routine-2022-11-09-06-50-09-utc-scaled.jpg
     background_color: '#fcc5c0'
     title: 'Hair Removal'
-    
+    color: '#54595F'
   - _block_name: section/treatmenthair
     background_color: '#ffffff'
     status: true

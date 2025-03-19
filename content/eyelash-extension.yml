@@ -13,6 +13,7 @@ content_blocks:
     status: true
     background_image: /images/eyelash-extension-procedure-1-2.jpg
     background_color: '#fcc5c0'
+    color: '#ffffff'
     title: 'Eyelash Extension'
     
   - _block_name: section/treatmenteye

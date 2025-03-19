@@ -8,6 +8,7 @@
   >
     <div class="">
       <h1
+       
         :style="{ color: block.color }"
         class="heading fw-bold fontMontserrat"
         v-html="block.title"
