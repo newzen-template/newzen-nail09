@@ -23,10 +23,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
-  label: Background Color
-  type: color
   image_background:
-    label: Content
+    label: Background Image
     type: image
   list_item[*].title:
     label: Title

@@ -9,7 +9,6 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
-  color: "#FCC5C0"
   background_color: '#C4C4C4'
   desc : ' <b> Google </b>&nbsp rating score:&nbsp<b>4.7</b>&nbsp of 5,&nbspbased on &nbsp<b> 65 reviews </b>'
   background_image: /images/review_bg.png
@@ -70,6 +69,7 @@ _inputs:
   list_review[*].star:
     label: Star Rating
     type: text
+    description: "Just Number 1 -> 5"
   list_review[*].desc:
     label: Review Text
     type: markdown

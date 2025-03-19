@@ -11,7 +11,7 @@
         <!-- content left -->
         <div
           style="height: 650px"
-          class="col-md-6 col-sm-12 position-relative d-flex flex-wrap align-content-center align-items-center cus-title"
+          class="col-md-6 col-sm-12 position-relative d-flexx flex-wrapp align-content-center align-items-center cus-title"
         >
           <div
             class="title mb-md-3 mb-2 ckeditor-custom font__RED pd-mb"
@@ -36,6 +36,7 @@
             >
           </NuxtLink>
           <img
+            v-if="block.image_lines"
             class="icon-line"
             :src="block.image_lines"
             style=""
@@ -46,6 +47,7 @@
 
         <div class="col-md-6 col-sm-12 position-relative cus-mb">
           <img
+            v-if="block.image"
             class="wd-ipm position-relative z-2"
             style="object-fit: cover; pointer-events: none"
             :src="block.image"
@@ -57,6 +59,7 @@
             @mouseleave="resetTransform"
           >
             <img
+              v-if="block.image_blue_rounded"
               style="top: 20px"
               class="icon-blue_rounded position-absolute"
               :style="imageStyle"
@@ -65,13 +68,14 @@
             />
           </div>
           <img
+            v-if="block.image_double_rounded"
             style="width: 124px; top: 2%; right: 0"
             class="icon-rounded-two position-absolute z-2"
             :src="block.image_double_rounded"
             :alt="block.image_alt"
           />
 
-          <img class="icon-rounded" :src="block.image_rounded" :alt="block.image_alt"
+          <img v-if="block.image_rounded" class="icon-rounded" :src="block.image_rounded" :alt="block.image_alt"
           />
         </div>
       </div>

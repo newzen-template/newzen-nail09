@@ -24,8 +24,6 @@ _inputs:
   status:
     label: Active Section
     type: toggle
-  label: Background Color Section
-  type: color
   title:
     label: Section Title
     type: markdown

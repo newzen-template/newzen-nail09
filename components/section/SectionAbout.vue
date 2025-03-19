@@ -18,7 +18,7 @@
           <div class="fs-5 fontMontserrat fw-normal fs-mb" style="text-transform: uppercase;" v-html="block.session" :style="{color: block.color}"></div>
           <div itemprop="name" class="fs-1 fontMontserrat fw-bold colortx1 title-mb" v-html="block.title"></div>
           <div itemprop="description" class="desc-mb" v-html="block.desc"></div>
-          <NuxtLink itemprop="url" v-if="block.button.is_show" class="btn-book d-inline-flex fz18 text-decoration-underline text-mb"  style="padding:15px 40px">{{block.button.text  }}  </NuxtLink>
+          <NuxtLink :style="{backgroundColor: block.background_color, color: block.color}" itemprop="url" v-if="block.button.is_show" class="btn-book d-inline-flex fz18 text-decoration-underline text-mb"  style="padding:15px 40px">{{block.button.text  }}  </NuxtLink>
        </div>
     </div>
   </section>

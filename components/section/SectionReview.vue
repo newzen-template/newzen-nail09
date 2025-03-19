@@ -75,7 +75,7 @@
                                         <img :src="block.image_logo" :alt="block.image_alt" />
                                       </div>   
                                 </div>
-                                   <i v-for="n in item.star" :key="n" class="bi bi-star-fill" style="color:#f6bb06"></i>
+                                   <i v-for="n in Number(item.star)" :key="n" class="bi bi-star-fill" style="color:#f6bb06"></i>
                                    <div 
                                   class="desc-container" 
                                 >
@@ -99,8 +99,7 @@
                 <div class="swiper-button-next"></div>
         </div>
     
-      <img class="position-absolute postion-leaf" :src="block.image_leaf" :alt="block.image_alt">
-       
+      <img v-if="block.image_leaf" class="position-absolute postion-leaf" :src="block.image_leaf" :alt="block.image_alt">
       </div>
   
    </div>

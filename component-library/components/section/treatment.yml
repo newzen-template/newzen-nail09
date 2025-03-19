@@ -25,7 +25,6 @@ blueprint:
         desc: 'Volume lashes are a type of eyelash extensions where multiple thin lash extensions are fanned out and applied onto one natural lash, creating a full and dramatic effect. This technique is ideal for those who have sparse lashes or desire a more glamorous look.'
         image: /images/hero-face2.jpg
         image_alt: ''
-    content: 'Transform Your Look with Lavilash’s Premium Eyelash <br> Services '
     button: 
       is_show: true
       open_new_tab: false

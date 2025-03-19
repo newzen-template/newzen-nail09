@@ -51,7 +51,6 @@ content_blocks:
         desc: 'Volume lashes are a type of eyelash extensions where multiple thin lash extensions are fanned out and applied onto one natural lash, creating a full and dramatic effect. This technique is ideal for those who have sparse lashes or desire a more glamorous look.'
         image: /images/hero-face2.jpg
         image_alt: 'image_alt'
-    content: 'Transform Your Look with Lavilash’s Premium Eyelash <br> Services '
     button: 
       is_show: true
       open_new_tab: false
@@ -132,7 +131,6 @@ content_blocks:
 
   - _block_name: section/review
     status: true
-    color: "#FCC5C0"
     background_color: '#C4C4C4'
     desc : '<b> Google </b>&nbsp rating score:&nbsp<b>4.7</b>&nbsp of 5,&nbspbased on &nbsp<b> 65 reviews </b>'
     background_image: /images/review_bg.png

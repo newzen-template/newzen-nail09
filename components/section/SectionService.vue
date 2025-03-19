@@ -48,6 +48,7 @@
                 <NuxtLink itemprop="url" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
+                    :style="{backgroundColor: block.backgroundColor, color: block.color }"
                     style="padding: 11px 30px"
                     >{{ block.button.text }}</span
                   ></NuxtLink

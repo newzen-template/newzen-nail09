@@ -46,7 +46,7 @@ _inputs:
   label: Background Color
   type: color
   color:
-    label: Color Section
+    label: Color Text Title
     type: color
   list_img.image_large:
     label: Image Large
