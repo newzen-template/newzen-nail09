@@ -101,7 +101,7 @@ content_blocks:
   - _block_name: section/service
     status: true
     
-    background_color: '#FCC5C0'
+    background_color: '#ffffff'
     color: "#ffffff"
     heading: 'Our Services'
     title: 'Popular Treatments'

@@ -8,7 +8,7 @@
      
 <div class="position-relative">
   <div >
-        <img class="img-mb position-absolute"  :src="block.image_double_heart" :alt="block.image_alt" />
+        <img style="max-height: 119px;" class="img-mb position-absolute"  :src="block.image_double_heart" :alt="block.image_alt" />
     </div>
    <div class="overflow-mb " style="overflow: hidden">
         <div

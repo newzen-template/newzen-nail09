@@ -48,7 +48,7 @@
                 <NuxtLink itemprop="url" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
-                    :style="{backgroundColor: block.backgroundColor, color: block.color }"
+                    :style="{backgroundColor: block.button.backgroundColor, color: block.button.color }"
                     style="padding: 11px 30px"
                     >{{ block.button.text }}</span
                   ></NuxtLink
@@ -80,13 +80,14 @@ const hoverIndex = ref(-1);
 </script>
 
 <style scoped>
-.service-item {
+.service_item {
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   background-color: #fff;
+  border-radius: 30px 30px 30px 30px;
+  
 }
 .item {
   outline: 4px solid #fcc5c0;
-  border-radius: 30px 30px 30px 30px;
 }
 .mb {
   margin-bottom: 40px;
