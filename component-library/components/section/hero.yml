@@ -9,6 +9,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color: '#ffffff'
   background_image: /images/hero-bg.png
   image: /images/hero-img.png
   image_alt : ''
@@ -36,6 +37,9 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  background_color:
+    label: Background color
+    type: color
   background_image:
     label: Background Image
     type: image

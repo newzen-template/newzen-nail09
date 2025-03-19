@@ -2,13 +2,14 @@
 spec:
   structures:
     - content_blocks
-  label: Starts Section
-  description: Starts Section
+  label: TreatmentBrow Section
+  description: TreatmentBrow Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color: '#ffffff'
   list_item:
     -   title: 'Brow Tints'
         image: /images/brow-tint.png
@@ -23,6 +24,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   list_item[*].title:
     label: Service Name
     type: markdown

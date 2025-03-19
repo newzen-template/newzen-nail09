@@ -4,7 +4,7 @@
       class=""
       v-if="block.status"
       :data-cms-bind="dataBinding"
-      :style="{backgroundImage: `url(${block.background_image})`}"
+      :style="{backgroundImage: `url(${block.background_image})`, backgroundColor: block.background_color}"
     >
 <div class="total my__container">
       <div class="head">

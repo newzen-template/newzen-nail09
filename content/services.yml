@@ -19,6 +19,7 @@ content_blocks:
 
   - _block_name: section/service
     status: true
+    background_color: '#ffffff'
     color: "#FCC5C0"
     heading: 'Our Services'
     title: 'Popular Treatments'
@@ -41,7 +42,7 @@ content_blocks:
       text: 'Learn more'
       link: '/#'
       background_color: '#FCC5C0'
-      color: '#fff'
+      color: '#ffffff'
     
   - _block_name: section/reviewservice
     status: true

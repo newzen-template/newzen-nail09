@@ -1,10 +1,11 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-    <section class="bg-img" v-if="block.status" :data-cms-bind="dataBinding" style="padding-top:15px" >
+      
+    <section class="bg-img" v-if="block.status" :data-cms-bind="dataBinding" style="padding-top:15px" :style="{backgroundColor:block.background_color}" >
       <div
-        class="section_hero container-xl"  
+        class="section_hero container-xl"
       >
-        <div class="row my__container position-relative" style="padding-left: 10px;">
+        <div class="row my__container position-relative"  style="padding-left: 10px;" >
               <div class="col-12 col-md-3 col-lg-3 text-center z-2 " v-for="item,index in block.list_item" :key="index">
   
                       <div class="service_item" :class="{'hovered': hoverIndex === index}" @mouseover = "hoverIndex = index" @mouseleave="hoverIndex = -1">

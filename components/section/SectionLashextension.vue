@@ -4,14 +4,17 @@
     class=""
     v-if="block.status"
     :data-cms-bind="dataBinding"
-    :style="{ backgroundImage: `url(${block.background_image})` }"
+    :style="{ backgroundImage: `url(${block.background_image})`, backgroundColor:block.background_color }"
+
   >
     <div
       style="
         box-shadow: 9px 0px 15px 0px
           rgba(188.24999999999997, 191.25, 188.24999999999997, 0.11);
       "
+      
       class="my__container"
+      
     >
       <div style="padding-bottom: 34px;padding-top:70px" class="text-center" >
         <h2

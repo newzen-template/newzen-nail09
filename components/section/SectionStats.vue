@@ -2,7 +2,7 @@
   <section
     v-if="block.status"
     :data-cms-bind="dataBinding"
-    :style="{ backgroundImage: `url(${block.image_background})` }"
+    :style="{ backgroundImage: `url(${block.image_background})`,backgroundColor: block.background_color }"
     style="background-position: center"
     class="wh"
     
@@ -126,11 +126,7 @@ onMounted(() => {
   background-color: rgba(255, 200, 200, 0.3); /* Màu phủ */
   background-blend-mode: overlay; /* Pha trộn màu và ảnh */
 }
-/* .backgroundOverlay{
-  position: absolute;
-  background-color: rgba(255, 200, 200, 0.3); 
-  height: 500px;
-} */
+
 .fs-69 {
   font-size: 69px;
   font-weight: 600;

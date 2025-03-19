@@ -19,6 +19,8 @@ content_blocks:
     title: 'Contact Us'
   - _block_name: contact/hero
     status: true
+    background_color: '#ffffff'
+
     title: 'Contact Us'
     heading: 'Get In Touch <br>  With Us'
     color: '#FCC5C0'

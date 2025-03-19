@@ -1,5 +1,11 @@
 {
   "en":{ 
+    "logo": "/images/hero-title.png",
+    "logo_alt": "Logo alt",
+    "logo_close": "/images/xmark-solid.svg",
+    "background_color" : "#ffffff",
+    "image_caret_down": "/images/caret-down-solid.png",
+    "alt_caret": "image_alt",
     "items": [
       {
         "link": "/",
@@ -45,7 +51,6 @@
         "open_new_tab": false
       } 
     ],
- 
     "button":{
       "text": "Book Now",
       "is_show": true,
@@ -67,22 +72,9 @@
       },
       "background_color": {
         "type": "color",
-        "label": "Color icon"
-      },
-      "header_top.background_color": {
-        "type": "color"
-        ,
-        "label": "Background icon"
-      },
-      "header_top.phone.image": {
-        "type": "image",
-        "label": "Phone Icon"
-      },
-      "header_top.social[*].image": {
-        "type": "image",
-        "label": "Image Social"
+        "label": "Background  color"
       }
+    
     }
   }
 }
-

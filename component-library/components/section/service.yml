@@ -10,6 +10,7 @@ spec:
 blueprint:
   status: true
   color: "#FCC5C0"
+  background_color: '#ffffff'
   heading: 'Our Services'
   title: 'Popular Treatments'
   image: '/images/service-dots.png'
@@ -36,6 +37,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   color:
     label: Color Section
     type: color

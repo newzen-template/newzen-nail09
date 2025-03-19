@@ -12,6 +12,7 @@ blueprint:
   title: 'Contact Us'
   heading: 'Get In Touch <br>  With Us'
   color: '#FCC5C0'
+  background_color: '#ffffff'
   desc: 'Experience Exceptional Beauty Services: Lavilash & Brow is Your Destination!'
   list_item:
   -   image: /images/user-clock-solid.png
@@ -23,6 +24,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color Section
+  type: color
   title:
     label: Section Title
     type: markdown

@@ -1,13 +1,14 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
     <section
-      class=""
+      class="position-relative z-1000"
       v-if="block.status"
       :data-cms-bind="dataBinding"
-      :style="{backgroundImage: `url(${block.background_image})`}"
+      :style="{backgroundImage: `url(${block.background_image})`, backgroundColor:block.background_color}"
     >
-<div class="total my__container">
-      <div class="head" itemscope itemtype="http://schema.org/Service">
+       
+<div class="total my__container" >
+      <div class="head" itemscope itemtype="http://schema.org/Service" >
         <meta itemprop="serviceType" :content="businessType" />
         <h2 itemprop="name" style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat fs-mb " v-html="block.title"></h2>
                  <div itemprop="description" style="padding-bottom:14px;display:inline;" class="desc" v-html="block.desc"></div>
@@ -68,7 +69,6 @@ const businessType = dataSite.value[firstKey].business_type.split('/')[lengthTyp
     --e-column-margin-right: 0px;
     --e-column-margin-left: 0px;
     padding: 70px 0px 0px 0px;
-    background-color: #fff;
 }  
 
 td{

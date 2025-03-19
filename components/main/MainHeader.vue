@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-  <header class="position-relative w-100">
-    <div class="position-absolute header" style="height: 100px">
+  <header class="position-relative w-100" >
+    <div class="position-absolute header" :style="{backgroundColor:headerData.background_color}" style="height: 100px">
       <nav
         class="row align-items-center justify-content-between mx-auto container-xl h-100"
       >

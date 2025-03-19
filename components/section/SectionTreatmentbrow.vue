@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
-    <section class="bg-img" v-if="block.status" :data-cms-bind="dataBinding" style="padding-top:15px" >
+    <section class="bg-img" v-if="block.status" :data-cms-bind="dataBinding" style="padding-top:15px" :style="{backgroundColor: block.background_color}" >
       <div
         class="section_hero container-xl"  
       >

@@ -4,7 +4,7 @@
     class="pd"
     v-if="block.status"
     :data-cms-bind="dataBinding"
-    :style="{ background: block.background }"
+    :style="{ backgroundColor: block.background_color }"
   >
     <div>
       <div class="my__container row z-1 position-relative" itemscope itemtype="http://schema.org/AboutPage">

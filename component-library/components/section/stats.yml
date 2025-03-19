@@ -2,13 +2,14 @@
 spec:
   structures:
     - content_blocks
-  label: Starts Section
-  description: Starts Section
+  label: Stats Section
+  description: Stats Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color: "#FCC5C0"
   image_background: /images/hero-banner.jpg
   list_item:
     - title: Satisfied Users
@@ -22,6 +23,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   image_background:
     label: Content
     type: image

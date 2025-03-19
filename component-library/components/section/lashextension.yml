@@ -2,13 +2,15 @@
 spec:
   structures:
     - content_blocks
-  label: Starts Section
-  description: Starts Section
+  label: Lashextension Section
+  description: Lashextension Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color: '#ffffff'
+
   title_lash: 'Lash Extensions'
   image_caret_right: /images/caret-right1-solid.svg
   image_caret_down: /images/caret-down-solid.svg
@@ -51,6 +53,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   title_lash:
     label: Lash Extensions Title
     type: markdown

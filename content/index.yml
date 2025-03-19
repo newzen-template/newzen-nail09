@@ -12,6 +12,7 @@ content_blocks:
 
   - _block_name: section/hero
     status: true
+    background_color: '#ffffff'
     background_image: /images/hero-bg.png
     image: /images/hero-img.png
     image_alt : 'image-alt'
@@ -34,7 +35,7 @@ content_blocks:
 
   - _block_name: section/treatment
     status: true
-    background: '#ffffff'
+    background_color: '#ffffff'
     list_treatment:
       - title: 'Classic Lashes'
         desc: 'Classic lashes are a type of eyelash extensions where one individual lash extension is glued onto one natural lash. This creates a natural, enhanced look by adding length and thickness to the lashes.'
@@ -62,6 +63,7 @@ content_blocks:
   - _block_name: section/about
     status: true
     color: "#FCC5C0"
+    background_color: '#ffffff'
     list_img:
         image_large: /images/hero-face3.jpg
         image_large_alt: 'hero-face3'
@@ -98,7 +100,8 @@ content_blocks:
 # ------------------service-------------------------
 
   - _block_name: section/service
-    status: true
+    status: tru
+    background_color: '#ffffff'
     color: "#FCC5C0"
     heading: 'Our Services'
     title: 'Popular Treatments'

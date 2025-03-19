@@ -69,7 +69,6 @@ const props = defineProps<Props>()
   z-index: -1;
   top: 0;
   left: 0;
-  opacity: 0.1;
 }
 .title{
   width: 60%;

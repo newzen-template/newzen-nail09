@@ -12,10 +12,11 @@ content_blocks:
   - _block_name: section/servicebreadcrum
     status: true
     background_image: /images/hot-hair-removal-depilation-female-skin-routine-2022-11-09-06-50-09-utc-scaled.jpg
-    background_color: '#F8F8F8'
+    background_color: '#fcc5c0'
     title: 'Hair Removal'
     
   - _block_name: section/treatmenthair
+    background_color: '#ffffff'
     status: true
     list_item:
      -   title: 'facial removal'
@@ -35,6 +36,7 @@ content_blocks:
 
   - _block_name: section/hairservice
     status: true
+    background_color: 'ffffff'
     title: 'Facial Hair Removal'
     service: 'WAXING - FACE'
     regular: 'REGULAR'
@@ -67,6 +69,7 @@ content_blocks:
 
   - _block_name: section/hairservice
     status: true
+    background_color: 'ffffff'
     title: 'Body Hair Removal'
     service: 'WAXING - FACE'
     regular: 'REGULAR'
@@ -98,6 +101,7 @@ content_blocks:
    
   - _block_name: section/hairservice
     status: true
+    background_color: 'ffffff'
     title: 'Men Waxing'
     service: 'WAXING - FACE'
     regular: 'REGULAR'

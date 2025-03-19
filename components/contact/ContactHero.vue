@@ -3,6 +3,7 @@
         v-if="block.status" 
         :data-cms-bind="dataBinding" 
         style="margin-top: 6em;margin-bottom:6em"
+        :style="{backgroundColor: block.background_color}"
     >
       <div class="my__container text-center">
           <div class="" style="padding:10px">
@@ -11,15 +12,17 @@
               <h2 style="line-height: 60px;" class="heading fs-1 fw-bold fontMontserrat mb-20"v-html="block.heading"></h2>
               <div class="desc mb-20" v-html="block.desc"></div>
            </div>
-            <div class="text-center content">
-              <div class="" v-for="item, index in block.list_item" :key="index">
-              <NuxtLink class="text-center text-reset cus-hover" v-if="item.link" :to="item.link"
-                :target="item?.open_new_tab ? '_blank' : ''">
-                <img v-if="item.image" class="" :src="item.image" :alt="item.label" >
-                {{ item.label }}
-              </NuxtLink>
+      <div class="d-flex">
+              <div class="text-center content">
+                <div class="" v-for="item, index in block.list_item" :key="index">
+                <NuxtLink class="text-center text-reset cus-hover" v-if="item.link" :to="item.link"
+                  :target="item?.open_new_tab ? '_blank' : ''">
+                  <img style="margin-right:10px" v-if="item.image" class="" :src="item.image" :alt="item.label" >
+                  {{ item.label }}
+                </NuxtLink>
+                </div>
               </div>
-            </div>
+      </div>
       <!-- <div class="col-6" >
       <div style="padding-left:12px">
            <div class="row pb-18 " >

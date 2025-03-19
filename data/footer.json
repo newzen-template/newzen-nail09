@@ -1,7 +1,7 @@
 {
   "en":{
-    "background": "#fff",
-    "background_copyright": "#f8f8f8",
+    "background_button": "#ffffff",
+    "background_footer": "#f8f8f8",
     "logo": "/images/hero-footer.png",
     "logo_alt": "Logo alt",
     "color_header": "#407088",
@@ -99,13 +99,13 @@
     "back_top_botom_footer": "Back To Top",
 
     "_inputs": {
-      "background": {
+      "background_button": {
         "type": "color",
-        "label": "Background color"
+        "label": "Background Button "
       },
-      "background_copyright": {
+      "background_footer": {
         "type": "color",
-        "label": "Background color copyright"
+        "label": "Background footer "
       },
       "logo": {
         "type": "image",

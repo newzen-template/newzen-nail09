@@ -10,6 +10,8 @@ spec:
 blueprint:
   status: true
   color: "#FCC5C0"
+  background_color: '#ffffff'
+
   list_img:
         image_large: /images/hero-face3.jpg
         image_large_alt: 'hero-face3'
@@ -40,6 +42,9 @@ _inputs:
     status:
     label: Active Section
     type: toggle
+  background_color:
+  label: Background Color
+  type: color
   color:
     label: Color Section
     type: color

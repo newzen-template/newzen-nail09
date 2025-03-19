@@ -49,7 +49,7 @@
                             <div class="cus-mb d-flex w-100  align-items-center justify-content-between ">
                                 <div class="d-flex align-items-center justify-content-center">
                                    <div class="d-flex">
-                                      <img class="avatar" style="border-radius: 50%;" :src="item.image_acount" />
+                                      <img  class="avatar" style="border-radius: 50%;width:64px;height:64px" :src="item.image_acount" />
                                       <div class="info ms-2">
                                         <div style="color:#FCC5C0;"  class="username fw-bold">{{ item.username }}</div>
                                         <div style="font-size:14px"  class="time colortx2">{{ item.position }}</div>

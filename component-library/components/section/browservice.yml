@@ -2,13 +2,14 @@
 spec:
   structures:
     - content_blocks
-  label: Starts Section
-  description: Starts Section
+  label: Browser Section
+  description: Browser Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color:
   title: 'Brow Services'
   image: /images/brow-tint.png
   desc: 'Membership: $50 for 6 months / $75 for 12 months. <br> Please present your membership information in order to be eligible for the membership prices.'                  
@@ -29,6 +30,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   title:
     label: Section Title
     type: markdown

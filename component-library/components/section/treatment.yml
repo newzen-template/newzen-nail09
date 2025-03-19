@@ -9,7 +9,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
     status: true
-    background: '#fff'
+    background: '#ffffff'
     list_treatment:
       - title: 'Classic Lashes'
         desc: 'Classic lashes are a type of eyelash extensions where one individual lash extension is glued onto one natural lash. This creates a natural, enhanced look by adding length and thickness to the lashes.'

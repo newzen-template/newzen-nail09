@@ -17,6 +17,7 @@ content_blocks:
     
   - _block_name: section/treatmentbrow
     status: true
+    background_color: 'ffffff'
     list_item:
      -   title: 'Brow Tints'
          image: /images/brow-tint.png
@@ -35,10 +36,9 @@ content_blocks:
     image_dot1_alt: 'hero-dots-2'
 
 
-
-
   - _block_name: section/Browservice
     status: true
+    background_color: '#ffffff'
     title: 'Brow Services'
     image: /images/brow-tint.png
     image_alt: 'image-alt'
@@ -50,29 +50,29 @@ content_blocks:
     list_item:
      -   title: 'Brow Tints'
          price: '$20'
-         member: '$'
+         member: '$40'
 
      -   title: 'Brow Lamination'
          price: '$100'
-         member: '$'
+         member: '$40'
 
      -   title: 'Brow Tweeze'
          price: '$23'
-         member: '$'
+         member: '$40'
 
      -   title: 'Brow Tweeze & Tint'
          price: '$35'
-         member: '$'             
+         member: '$40'             
               
      -   title: 'Brow Lamination with Tweeze & Tint'
          price: '$135'
-         member: '$'
+         member: '$40'
 
      -   title: 'Brow Wax'
          price: '$20'
-         member: '$' 
+         member: '$40' 
      -   title: 'Brow Wax & Tint'
          price: '$35'
-         member: '$'
+         member: '$40'
 
      

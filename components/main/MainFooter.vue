@@ -3,11 +3,11 @@
   <footer >
     <!-- Footer -->
      
-    <div :style="{backgroundColor: footerData.background}" class="text-center text-lg-start text-muted">
+    <div :style="{backgroundColor: footerData.background_color}" class="text-center text-lg-start text-muted">
        <!-- Section: Links  -->
       <section class="animation_up">
           <!-- Form -->
-          <div :style="{backgroundColor: footerData.background}"style="margin-bottom: -70px;" class="my__container position-relative form text-center">
+          <div :style="{backgroundColor: footerData.background_button}"style="margin-bottom: -70px;" class="my__container position-relative form text-center">
            <div class="Experience d-flex flex-column justify-content-center align-items-center">
               <h2 class="fs-1 fw-bold p-2" v-html="footerData.title"></h2>
               <div class="fz18 p-3" v-html="footerData.para"></div>
@@ -24,7 +24,7 @@
         </div>
       </section>
       <!-- Section: Links  -->
-      <div class="text-start pd":style="{backgroundColor: footerData.background_copyright}">
+      <div class="text-start pd":style="{backgroundColor: footerData.background_footer}">
         <div class="my__container">
           <!-- Grid row -->
           <div class="row" style="padding-top:144px;padding-bottom:32px;padding-left:10px">

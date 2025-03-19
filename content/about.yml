@@ -21,6 +21,7 @@ content_blocks:
 # ------------------About-------------------------
   - _block_name: section/about
     status: true
+    background_color: '#ffffff'
     color: "#FCC5C0"
     list_img:
         image_large: /images/about_eyelush2.png
@@ -47,7 +48,7 @@ content_blocks:
   # ------------------About-------------------------
   - _block_name: about/hero
     status: true
-    background: "#FCC5C0"
+    background_color: "#FCC5C0"
     heading: 'Team'
     title: 'Our Mission'
     content: >-
@@ -124,6 +125,7 @@ content_blocks:
   - _block_name: section/stats
     status: true
     image_background: /images/hero-banner.jpg
+    background_color: '#FCC5C0'
     list_item:
       - title: Satisfied Users
         count_up: '100'

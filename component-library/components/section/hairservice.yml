@@ -2,13 +2,14 @@
 spec:
   structures:
     - content_blocks
-  label: Starts Section
-  description: Starts Section
+  label: HairService Section
+  description: HairService Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  background_color: '#ffffff'
   title: 'Facial Hair Removal'
   service: 'WAXING - FACE'
   regular: 'REGULAR'
@@ -26,6 +27,8 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  label: Background Color
+  type: color
   title:
     label: Section Title
     type: markdown

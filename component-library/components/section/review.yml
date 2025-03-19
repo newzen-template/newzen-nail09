@@ -2,8 +2,8 @@
 spec:
   structures:
     - content_blocks
-  label: Service Section
-  description: Ser Section
+  label: Review Section
+  description: Review Section
   icon: "cottage"
 
 # Defines the structure of this component, as well as the default values
