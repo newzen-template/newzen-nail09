@@ -99,9 +99,10 @@ content_blocks:
 # ------------------service-------------------------
 
   - _block_name: section/service
-    status: tru
-    background_color: '#ffffff'
-    color: "#FCC5C0"
+    status: true
+    
+    background_color: '#FCC5C0'
+    color: "#ffffff"
     heading: 'Our Services'
     title: 'Popular Treatments'
     image: '/images/service-dots.png'
