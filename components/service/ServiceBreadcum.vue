@@ -19,7 +19,7 @@
           ></div>
         </div>
         <div class="image-set "  >
-          <img class="cus-img" style="height: auto;width: 300px;height:300px" :src="block.image" alt="" />
+          <img v-if="block.image" class="cus-img" style="height: auto;width: 300px;height:300px" :src="block.image" alt="" />
         </div>
       </div>
     </div>

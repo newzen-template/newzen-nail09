@@ -82,7 +82,7 @@ const hoverIndex = ref(-1);
     background-color: #fff;
 }
 .img-cus{
-    height: 200px;
+    max-height: 200px;
     object-fit: cover;
     object-position: center center;
     transition-duration: 0.3s;

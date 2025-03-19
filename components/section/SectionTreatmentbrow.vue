@@ -10,7 +10,7 @@
                       <div class="service_item" :class="{'hovered': hoverIndex === index}" @mouseover = "hoverIndex = index" @mouseleave="hoverIndex = -1">
                       <div class="d-flex flex-column mb-3 pd  ">
                         <div lass="text-center d-flex flex-column justify-content-center align-items-center pt-3 ">
-                              <img class="img-cus" :src="item.image" :alt="block.image_alt">
+                              <img v-if="item.image" class="img-cus" :src="item.image" :alt="block.image_alt">
                               <h3 class="fz-22 fontMontserrat p-3">{{ item.title.toUpperCase() }}</h3>
                               <div class="p-2">{{ item.desc }}</div>
                       </div>
@@ -81,7 +81,7 @@ const hoverIndex = ref(-1);
     background-color: #fff;
 }
 .img-cus{
-    height: 200px;
+    max-height: 200px;
     object-fit: cover;
     object-position: center center;
     transition-duration: 0.3s;

@@ -13,7 +13,7 @@
         <h2 itemprop="name" style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat fs-mb " v-html="block.title"></h2>
                  <div itemprop="description" style="padding-bottom:14px;display:inline;" class="desc" v-html="block.desc"></div>
                      <div class="d-inline"  style="padding-bottom:14px;padding-left:5px;">
-                     <NuxtLink class="desc" style="color:#FCC5C0;font-size:18px" :to="block.link">{{ block.desc_link }}</NuxtLink>
+                     <NuxtLink  class="desc" style="color:#FCC5C0;font-size:18px" :to="block.link">{{ block.desc_link }}</NuxtLink>
                     <div style="padding-bottom:34px;font-size:18px"  class="desc fontMontserrat" v-html="block.desc2"></div>
        </div>
       </div>

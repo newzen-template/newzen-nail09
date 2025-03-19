@@ -8,7 +8,7 @@
      
 <div class="position-relative">
   <div >
-        <img style="max-height: 119px;" class="img-mb position-absolute"  :src="block.image_double_heart" :alt="block.image_alt" />
+        <img v-if="block.image_double_heart" style="max-height: 119px;" class="img-mb position-absolute"  :src="block.image_double_heart" :alt="block.image_alt" />
     </div>
    <div class="overflow-mb " style="overflow: hidden">
         <div
@@ -65,14 +65,14 @@
                               <div class="w-100 ">
                                   <div class="d-flex w-100  align-items-center justify-content-between ">
                                     <div class="d-flex align-items-center">
-                                        <img class="avatar" style="width:40px;height:40px" :src="item.image_acount" :alt="item.image_alt" />
+                                        <img v-if="item.image_acount"  class="avatar" style="width:40px;height:40px" :src="item.image_acount" :alt="item.image_alt" />
                                         <div class="info ms-2">
                                           <div class="username fw-bold">{{ item.username }}</div>
                                           <div class="time">{{ item.time }}</div>
                                         </div>
                                       </div>
                                       <div class="logo ">
-                                        <img :src="block.image_logo" :alt="block.image_alt" />
+                                        <img v-if="block.image_logo" :src="block.image_logo" :alt="block.image_alt" />
                                       </div>   
                                 </div>
                                    <i v-for="n in Number(item.star)" :key="n" class="bi bi-star-fill" style="color:#f6bb06"></i>

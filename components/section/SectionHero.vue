@@ -49,12 +49,12 @@
           <img
             v-if="block.image"
             class="wd-ipm position-relative z-2"
-            style="object-fit: cover; pointer-events: none"
+            style="object-fit: cover; pointer-events: none;max-height:626px"
             :src="block.image"
             :alt="block.image_alt"
           />
           <div
-            class="animation"
+            class="animation "
             @mousemove="handleHover"
             @mouseleave="resetTransform"
           >

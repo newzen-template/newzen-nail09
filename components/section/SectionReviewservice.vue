@@ -18,7 +18,7 @@
 
       <div class="text-center">
         <div>
-          <img style="margin-top: -50px" :src="block.image_double_heart" />
+          <img v-if="block.image_double_heart" style="margin-top: -50px" :src="block.image_double_heart" />
         </div>
 
 
@@ -49,7 +49,7 @@
                             <div class="cus-mb d-flex w-100  align-items-center justify-content-between ">
                                 <div class="d-flex align-items-center justify-content-center">
                                    <div class="d-flex">
-                                      <img  class="avatar" style="border-radius: 50%;width:64px;height:64px" :src="item.image_acount" />
+                                      <img v-if="item.image_acount"  class="avatar" style="border-radius: 50%;width:64px;height:64px" :src="item.image_acount" />
                                       <div class="info ms-2">
                                         <div style="color:#FCC5C0;"  class="username fw-bold">{{ item.username }}</div>
                                         <div style="font-size:14px"  class="time colortx2">{{ item.position }}</div>
@@ -57,7 +57,7 @@
                                    </div>
                                   </div>
                                   <div class="logo ">
-                                    <img :src="block.image_logo" alt="" />
+                                    <img v-if="block.image_logo" :src="block.image_logo" alt="" />
                                   </div>   
                             </div>
                                <i v-for="n in item.star" :key="n" class="bi bi-star-fill" style="color:#f6bb06"></i>

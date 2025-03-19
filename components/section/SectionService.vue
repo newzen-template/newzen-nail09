@@ -42,10 +42,10 @@
               <div
                 class="text-center d-flex flex-column justify-content-center align-items-center pt-3"
               >
-                <img itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
+                <img v-if="item.img" itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
                 <h3 itemprop="name" class="fs-4 p-3">{{ item.title }}</h3>
                 <div itemprop="description" class="p-2" v-html="item.desc"></div>
-                <NuxtLink itemprop="url" class="btn-book fontMontserrat"
+                <NuxtLink v-if="block.button.is_show"  itemprop="url" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
                     :style="{backgroundColor: block.button.backgroundColor, color: block.button.color }"
@@ -104,7 +104,7 @@ const hoverIndex = ref(-1);
   background-color: #fff;
 }
 .img-cus {
-  height: 120px;
+  max-height: 120px;
   object-fit: contain;
 }
 @media (max-width: 1024px) {

@@ -7,7 +7,7 @@
       >
         <div class="col-lg-3 d-lg-block d-none">
           <!-- Logo Desktop -->
-          <NuxtLink itemprop="url" :to="`${homeUrl}`" class="d-block">
+          <NuxtLink v-if="headerData.button.is_show"  itemprop="url" :to="`${homeUrl}`" class="d-block">
             <img
               itemprop="logo"
               :src="headerData.logo"
@@ -21,6 +21,7 @@
           class="col-lg-8 col-12 px-0 d-flex justify-content-lg-end justify-content-between align-items-center h-100"
         >
           <NuxtLink
+          v-if="headerData.button.is_show"
             itemprop="url"
             :to="`${homeUrl}`"
             class="d-lg-none d-block col-6"
@@ -65,6 +66,7 @@
             
             >
           <NuxtLink
+          v-if="headerData.button.is_show"
             class="text-black d-block font__size__base text-decoration-none h-100"
             style="line-height: 40px;padding-left:20px;"
             itemprop="url"
@@ -88,6 +90,7 @@
             <ul>
               <li v-for="(child, index) in header.item_child" :key="index">
                 <NuxtLink
+                v-if="headerData.button.is_show"
                   itemprop="url"
                   :to="child.link"
                   :title="child.text"
@@ -119,6 +122,7 @@
               }"
             >
               <NuxtLink
+              v-if="headerData.button.is_show"
                 itemprop="url"
                 :to="header.link" 
                 :title="header.text"
@@ -144,6 +148,7 @@
                       :key="index"
                     >
                       <NuxtLink
+                      v-if="headerData.button.is_show"
                         itemprop="url"
                         :to="child.link"
                         :title="child.text"
@@ -160,6 +165,7 @@
           </ul>
 
           <NuxtLink
+          v-if="headerData.button.is_show"
             itemprop="url"
             :to="headerData.button.link"
             :target="headerData.button.open_new_tab ? '_blank' : ''"

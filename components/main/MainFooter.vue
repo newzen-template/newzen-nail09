@@ -18,6 +18,7 @@
                 :style="{backgroundColor: footerData.button.background_color,color: footerData.button.color}"
                 class="text-decoration-underline btn-book fz18 p-3"
               > 
+              
                 {{ footerData.button.text }}
               </NuxtLink>    
            </div>         
@@ -34,7 +35,7 @@
               <!-- Logo Column (7) -->
               <div class="col-12 col-sm-7 col-lg-7 col-7 col">
                 <div class="mb-4">
-                  <img class="" style="min-width: 120px; max-height: 120px;" :src="footerData.logo" :alt="footerData.logo_alt">
+                  <img v-if="footerData.logo" class="" style="min-width: 120px; max-height: 120px;" :src="footerData.logo" :alt="footerData.logo_alt">
                 </div>
                 <div class="mb-4 ckeditor-custom desc-mb" style="width:332px" v-html="footerData.description"></div>
               </div>
@@ -66,7 +67,7 @@
           {{ footerData.company.label }}
         </h6>
         <div class="mb-2" v-for="item, index in footerData.company.list_company" :key="index">
-          <NuxtLink class="text-reset cus-hover" itemprop="url" v-if="item.link" :to="item.link"
+          <NuxtLink class="text-reset cus-hover" itemprop="url" v-if="footerData.button.is_show" :to="item.link"
             :target="item?.open_new_tab ? '_blank' : ''">
             {{ item.label }}
           </NuxtLink>
@@ -80,9 +81,9 @@
         <div style="max-width:285px;" class="mb-2 desc-info_mb" v-bind="item?.item_prop.includes('streetAddress') && handleRenderAttribute" 
         v-for="item, index in footerData.info.list_info" :key="index" 
         >
-          <NuxtLink class="text-reset cus-hover d-flex" itemprop="url" v-if="item.link" :to="item.link"
+          <NuxtLink v-if="footerData.button.is_show" class="text-reset cus-hover d-flex" itemprop="url"  :to="item.link"
             :target="item?.open_new_tab ? '_blank' : ''" >
-            <div style="width:14px;height: 14px;margin-right:10px"><img itemprop="image"  class="me-1" style="height: 14px" :src="item.image" :alt="item.label"></div>
+            <div style="width:14px;height: 14px;margin-right:10px"><img v-if="item.image" itemprop="image"  class="me-1" style="height: 14px" :src="item.image" :alt="item.label"></div>
             <span :itemprop="item?.item_prop">{{ item.label }}</span>
           </NuxtLink>
         </div>
