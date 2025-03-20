@@ -11,7 +11,7 @@
                     <div class="d-flex flex-column mb-3 pd">
                       <div  class="text-center d-flex flex-column justify-content-center align-items-center pt-3">
                             <img v-if="item.image" class="img-cus" :src="item.image" :alt="item.image_alt">
-                            <h3 class="fs-4 p-3" style="text-transform: uppercase;">{{ item.title }}</h3>
+                            <div class="fs-4 p-3" style="text-transform: uppercase;" v-html="item.title"></div>
                             <div class="p-2" v-html="item.desc"></div>
                     </div>
                 </div>

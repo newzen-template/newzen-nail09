@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/html-self-closing -->
 <template>
   <header class="position-relative w-100" >
-    <div class="position-absolute header" :style="{backgroundColor:headerData.background_color}" style="height: 100px">
+    <div class="position-absolute header" style="height: 100px">
       <nav
         class="row align-items-center justify-content-between mx-auto container-xl h-100"
       >
@@ -51,7 +51,7 @@
                 margin-right:10px;
               "
             ></i> 
-            <img v-if="isOpen" class="img-close" style="width: 30px;height:30px;margin-right:10px" :src="headerData.logo_close" alt="">
+            <img v-if="isOpen" class="img-close" style="width: 30px;height:30px;margin-right:10px" src="../../public/images/xmark-solid.svg" alt="">
           </div>
           <div v-show="checkMobile" :class="['nav-mobile', { active: isOpen }]">
       <div class="nav-mobile-left flex-1">
@@ -79,7 +79,7 @@
                   :class="{ active: isActiveMenuItem(header.link) }"
                   style="padding-left: 10px"
                   v-if="header?.item_child && header.item_child.length > 0"
-                  :src="headerData.image_caret_down"
+                  src="../../public/images/caret-down-solid.png"
                   alt="Dropdown"
                   class="nav-icon"
                 />

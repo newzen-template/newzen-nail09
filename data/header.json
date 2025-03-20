@@ -2,9 +2,6 @@
   "en":{ 
     "logo": "/images/hero-title.png",
     "logo_alt": "Logo alt",
-    "logo_close": "/images/xmark-solid.svg",
-    "background_color" : "",
-    "image_caret_down": "/images/caret-down-solid.png",
     "alt_caret": "image_alt",
     "items": [
       {
@@ -58,17 +55,29 @@
       "open_new_tab": true
     },
     "_inputs": {
-      "icon": {
-        "type": "image",
-        "label": "Image icon"
-      },
+      "button.is_show": {
+    "type": "toggle",
+    "label": "Show Button"
+  },
+    "button.text": {
+      "type": "text",
+      "label": "Button Text"
+    },
+    "button.background_color": {
+      "type": "color",
+      "label": "Button Background Color"
+    },
+    "button.link": {
+      "type": "text",
+      "label": "Button Link"
+    },
+    "button.color": {
+      "type": "color",
+      "label": "Button Text Color"
+    },
       "logo": {
         "type": "image",
         "label": "Image logo"
-      },
-      "search":{
-        "type": "text",
-        "label": "Placeholder"
       },
       "background_color": {
         "type": "color",

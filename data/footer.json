@@ -5,7 +5,6 @@
     "logo": "/images/hero-footer.png",
     "logo_alt": "Logo alt",
     "color_header": "#407088",
-    "color_text":"#54595F",
     "description": "At LaviLash Salon, our mission is to enhance our clients’ natural beauty by providing exceptional lash extensions services using premium-quality products and cutting-edge techniques.",
     "title": "Experience the Art of Beauty",
     "para": "Transform Your Lashes and Brows at Lavilash & Brow",
@@ -103,6 +102,13 @@
         "type": "color",
         "label": "Background Button "
       },
+      "button": {
+      "is_show":true,
+      "text": "Book Now",
+      "background_color":"#FCC5C0",
+      "link":"/#",
+      "color": "#ffffff"
+    },
       "background_footer": {
         "type": "color",
         "label": "Background footer "
