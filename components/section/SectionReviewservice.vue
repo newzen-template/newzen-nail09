@@ -18,7 +18,7 @@
 
       <div class="text-center">
         <div>
-          <img v-if="block.image_double_heart" style="margin-top: -50px" :src="block.image_double_heart" />
+          <img  v-if="block.image_double_heart" style="margin-top: -50px;max-height:119px" :src="block.image_double_heart" />
         </div>
 
 
@@ -45,7 +45,7 @@
                    <div style="margin-top:30px;margin-bottom:30px">
                       <div class="review-content ">
                           <div >
-                            <div style="font-size:24px " class="desc fst-italic" v-html="item.desc"></div>
+                            <div :style="{color: block.color}" style="font-size:24px " class="desc fst-italic" v-html="item.desc"></div>
                             <div class="cus-mb d-flex w-100  align-items-center justify-content-between ">
                                 <div class="d-flex align-items-center justify-content-center">
                                    <div class="d-flex">
@@ -69,6 +69,7 @@
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
+            <!-- <img v-if="block.image_leaf" class="position-absolute postion-leaf" :src="block.image_leaf" :alt="block.image_alt"> -->
 
        </div>
     </div>
@@ -131,7 +132,12 @@ const props = defineProps<Props>();
   border-radius: 50%;
   transition: background 0.3s;
 }
-
+// .postion-leaf{
+//   position: absolute;
+//   z-index: 1;
+//   right: -7%;
+//   bottom: -42%;
+// }
 .review-content {
   width: 695px !important; /* Đặt width cố định */
   margin:0 auto;

@@ -189,7 +189,6 @@ content_blocks:
     status: true
     background_color: '#ffffff'
     title: 'Lash RefillsLash Lifts & Tints'
-    image: /images/brow-tint.png
     desc: <p> A lash tint will dye and darken your natural lashes to create a balanced, effortless look.<br>A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.&nbsp;<a href="https://www.youtube.com/shorts/-62EiN8nscE" class="custom-color" target="_blank" rel="noopener">Click here to view our work.</a>.</p><p>We use safe, high-quality, award-winning materials to enhance your natural beauty.</p>
     link: 'https://www.youtube.com/shorts/-62EiN8nscE'
     service: 'Serivce'
@@ -212,7 +211,6 @@ content_blocks:
     title: 'Supplemental Services'
     background_color: '#ffffff'
 
-    image: /images/brow-tint.png
     desc: 'Description of services. Include any common information regarding the procedures.'               
     service: 'Service'
     regular: 'Time'

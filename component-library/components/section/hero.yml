@@ -81,7 +81,7 @@ _inputs:
     type: toggle
   button.text:
     label: Button Text
-    type: markdown
+    type: text
   button.link:
     label: Button Link
     type: text

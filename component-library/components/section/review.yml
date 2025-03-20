@@ -30,9 +30,6 @@ _inputs:
   status:
     label: Active Section
     type: toggle
-  color:
-    label: Section Color
-    type: color
   background_color:
     label: Background Color
     type: color

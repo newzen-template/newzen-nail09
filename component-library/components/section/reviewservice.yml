@@ -9,10 +9,11 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
+  color: "#333333"
   background_color: '#C4C4C4'
   background_image: /images/review_bg.png
   image_double_heart: /images/hero-love.png
-  image_leaf: /images/leaf-3.png
+  # image_leaf: /images/leaf-3.png
   list_review:
       - image_acount: /images/service.jpg
         username: 'John Doe'
@@ -27,6 +28,9 @@ _inputs:
   status:
     label: Active Section
     type: toggle
+  color:
+    label: Color Title 
+    type: color
   background_color:
     label: Background Color
     type: color
@@ -36,9 +40,9 @@ _inputs:
   image_double_heart:
     label: Double Heart Image
     type: image
-  image_leaf:
-    label: Leaf Image
-    type: image
+  # image_leaf:
+  #   label: Leaf Image
+  #   type: image
   list_review[*].image_acount:
     label: User Image
     type: image

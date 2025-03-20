@@ -12,8 +12,8 @@
                       <div class="d-flex flex-column mb-3 pd  ">
                         <div lass="text-center d-flex flex-column justify-content-center align-items-center pt-3 ">
                               <img class="img-cus" :src="item.image" :alt="item.image_alt">
-                              <h3 class="fz-22 fontMontserrat p-3">{{ item.title.toUpperCase() }}</h3>
-                              <div class="p-2 pd-ip">{{ item.desc }}</div>
+                              <div style="text-transform: uppercase;" class="fz-22 fontMontserrat p-3 " v-html="item.title"></div>
+                              <div class="p-2 pd-ip" v-html="item.desc"></div>
                       </div>
                   </div>
             </div>

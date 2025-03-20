@@ -46,11 +46,11 @@ content_blocks:
     
   - _block_name: section/reviewservice
     status: true
-    color: "#FCC5C0"
+    color: "#333333"
     background_color: '#C4C4C4'
     background_image: /images/review_bg.png
     image_double_heart: /images/hero-love.png
-    image_leaf: /images/leaf-3.png
+    # image_leaf: /images/leaf-3.png
     list_review:
       - image_acount: /images/service.jpg
         username: 'John Doe'

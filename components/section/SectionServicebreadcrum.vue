@@ -5,6 +5,7 @@
     v-if="block.status"
     :data-cms-bind="dataBinding"
     :style="{ backgroundImage: `url(${block.background_image})` }"
+    style="max-height: 444px;"
   >
     <div class="">
       <h1

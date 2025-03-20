@@ -52,7 +52,6 @@ content_blocks:
 
   - _block_name: section/review
     status: true
-    color: "#FCC5C0"
     background_color: '#C4C4C4'
     desc : ' <b> Google </b>&nbsp rating score:&nbsp<b>4.7</b>&nbsp of 5,&nbspbased on &nbsp<b> 65 reviews </b>'
     background_image: /images/review_bg.png

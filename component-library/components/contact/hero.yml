@@ -10,8 +10,8 @@ spec:
 blueprint:
   status: true
   title: 'Contact Us'
-  heading: 'Get In Touch <br>  With Us'
   color: '#FCC5C0'
+  heading: 'Get In Touch <br>  With Us'
   background_color: '#ffffff'
   desc: 'Experience Exceptional Beauty Services: Lavilash & Brow is Your Destination!'
   list_item:
@@ -27,12 +27,13 @@ _inputs:
   title:
     label: Section Title
     type: markdown
-  heading:
-    label: Section Heading
-    type: markdown
   color:
     label: Section Color
     type: color
+  heading:
+    label: Section Heading
+    type: markdown
+ 
   desc:
     label: Description
     type: markdown

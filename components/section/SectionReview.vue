@@ -72,7 +72,7 @@
                                         </div>
                                       </div>
                                       <div class="logo ">
-                                        <img v-if="block.image_logo" :src="block.image_logo" :alt="block.image_alt" />
+                                        <img style="max-height: 20px;" v-if="block.image_logo" :src="block.image_logo" :alt="block.image_alt" />
                                       </div>   
                                 </div>
                                    <i v-for="n in Number(item.star)" :key="n" class="bi bi-star-fill" style="color:#f6bb06"></i>

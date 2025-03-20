@@ -69,13 +69,13 @@
           </div>
           <img
             v-if="block.image_double_rounded"
-            style="width: 124px; top: 2%; right: 0"
+            style="max-height: 149px; top: 2%; right: 0"
             class="icon-rounded-two position-absolute z-2"
             :src="block.image_double_rounded"
             :alt="block.image_alt"
           />
 
-          <img v-if="block.image_rounded" class="icon-rounded" :src="block.image_rounded" :alt="block.image_alt"
+          <img style="max-height:208px"  v-if="block.image_rounded" class="icon-rounded" :src="block.image_rounded" :alt="block.image_alt"
           />
         </div>
       </div>
@@ -191,6 +191,7 @@ const resetTransform = () => {
   max-width: 1140px !important;
 }
 .icon-line {
+  max-height: 129px;
   position: absolute;
   bottom: -8%;
   left: 14%;
