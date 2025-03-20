@@ -59,7 +59,7 @@ const props = defineProps<Props>()
   height: 100%;
   border-radius: 50% 50% 50% 50%;
   box-shadow: 0px 0px 9px 0px rgba(104.25, 104.25, 104.25, 0.16);
-  
+ 
 }
 
 .cus-bg {

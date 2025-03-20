@@ -45,10 +45,10 @@
                 <img v-if="item.img" itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
                 <h3 itemprop="name" class="fs-4 p-3">{{ item.title }}</h3>
                 <div itemprop="description" class="p-2" v-html="item.desc"></div>
-                <NuxtLink v-if="block.button.is_show" :to="block.button.link" itemprop="url" class="btn-book fontMontserrat"
+                <NuxtLink v-if="block.button.is_show" :to="block.button.link" itemprop="url" :style=" {backgroundColor: block.button.background_color,color: block.button.color}" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
-                    :style="{backgroundColor: block.button.backgroundColor, color: block.button.color }"
+                    :style="{color: block.button.color }"
                     style="padding: 11px 30px"
                     >{{ block.button.text }}</span
                   ></NuxtLink

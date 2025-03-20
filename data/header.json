@@ -2,7 +2,6 @@
   "en":{ 
     "logo": "/images/hero-title.png",
     "logo_alt": "Logo alt",
-    "alt_caret": "image_alt",
     "items": [
       {
         "link": "/",
@@ -55,10 +54,11 @@
       "open_new_tab": true
     },
     "_inputs": {
-      "button.is_show": {
+      
+    "button.is_show": {
     "type": "toggle",
     "label": "Show Button"
-  },
+    },
     "button.text": {
       "type": "text",
       "label": "Button Text"
@@ -79,6 +79,11 @@
         "type": "image",
         "label": "Image logo"
       },
+      "logo_alt": {
+        "type": "text",
+        "label": "Image alt"
+      },
+      
       "background_color": {
         "type": "color",
         "label": "Background  color"

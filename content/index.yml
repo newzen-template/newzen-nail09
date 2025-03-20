@@ -119,7 +119,7 @@ content_blocks:
       text: 'Learn more'
       link: '/#'
       background_color: '#FCC5C0'
-      color: '#fff'
+      color: 'red'
     
 
 # ------------------Review-------------------------

@@ -59,7 +59,7 @@ _inputs:
     type: image
   list_service[*].desc:
     label: Service Description
-    type: textarea
+    type: markdown
   button.text:
     label: Button Text
     type: text

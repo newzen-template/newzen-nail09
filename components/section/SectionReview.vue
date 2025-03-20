@@ -67,8 +67,8 @@
                                     <div class="d-flex align-items-center">
                                         <img v-if="item.image_acount"  class="avatar" style="width:40px;height:40px" :src="item.image_acount" :alt="item.image_alt" />
                                         <div class="info ms-2">
-                                          <div class="username fw-bold">{{ item.username }}</div>
-                                          <div class="time">{{ item.time }}</div>
+                                          <div class="username fw-bold" v-html=" item.username "></div>
+                                          <div class="time" v-html="item.time "></div>
                                         </div>
                                       </div>
                                       <div class="logo ">
