@@ -46,7 +46,7 @@ content_blocks:
     image_dot2_alt: 'hero-dots-2'
 
 
-  - _block_name: section/lashextensiontest
+  - _block_name: section/lashextension
     status: true
     style: 'Half'
     title: 'Lash Extensions'
@@ -63,7 +63,7 @@ content_blocks:
               desc1: "<p>Artist 1: $225<br>Artist 2: $250<br>Artist 3: $275</p>"
           -   title: 'Classic - Deluxe'
               desc: " <p>A mixture of classic and volume techniques with 80-90% coverage of natural lashes.</p>"
-              desc1: "<p>Artist 1: $225 <br>Artist 2: $250<br>Artist 3: $275</p>   "   
+              desc1: "<p>Artist 1: $225 <br>Artist 2: $250<br>Artist 3: $275</p> "   
 
           -   title: 'Hybird'
               desc: "<p>One extension is glued to one natural lash with 60-70% coverage.</p>"

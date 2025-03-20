@@ -12,7 +12,6 @@
         box-shadow: 9px 0px 15px 0px
           rgba(188.24999999999997, 191.25, 188.24999999999997, 0.11);
       "
-      
       class="my__container"
       
     >
@@ -20,220 +19,49 @@
         <h2
           style="padding: 15px"
           class="title fs-1 fw-bold"
-          v-html="block.title_lash"
+          v-html="block.title"
         ></h2>
         <div
           class="desc"
           style="font-size: 18px; color: #333333"
-          v-html="block.desc_lash"
-        ></div>
-      </div>
-      <div class="parent">
-        <div
-          v-for="(item, index) in block.list_item"
-          :key="index"
-          class="service-category"
-        >
-          <div
-            class="accordion-btn"
-            @click="toggleCategory('list_item', index)"
-          >
-            <img
-             
-              class="accordion-icon"
-              style="margin-right: 5px"
-              :src="
-                activeCategories['list_item'] === index
-                  ? block.image_caret_down
-                  : block.image_caret_right
-              "
-              :alt="block.image_alt"
-            />
-            {{ item.title }}
-          </div>
-     <transition name="slide">
-            <div
-              v-if="activeCategories['list_item'] === index"
-              class="accordion-content"
-              
-            >
-            <div style="padding-bottom:10px" v-html="item.desc"></div>
-            <div v-html="item.desc1"></div>
-          </div>
-     </transition>
-        </div>
-      </div>
-    </div>
-
-    <!-- Block 2   -->
-
-    <div
-      style="
-        box-shadow: 9px 0px 15px 0px
-          rgba(188.24999999999997, 191.25, 188.24999999999997, 0.11);
-      "
-      class="my__container"
-    >
-      <div style="padding-bottom: 34px" class="text-center">
-        <div
-          style="padding: 15px"
-          class="title fs-1 fw-bold"
-          v-html="block.title_classic"
-        ></div>
-        <div
-          class="desc"
-          style="font-size: 18px; color: #333333"
-          v-html="block.desc_classic"
-        ></div>
-        <div
-          class="desc"
-          style="font-size: 18px; color: #333333"
-          v-html="block.desc_classic2"
+          v-html="block.description"
         ></div>
       </div>
       <div class="row">
-        <div class="col-12 col-sm-6 col-lg-6">
-          <div  class="fs-5 fw-bold font-mb"  v-html="block.server_classic"></div>
-          <div class="parent">
-            <div
-              v-for="(item, index) in block.list_item_classic"
-              :key="index"
-              class="service-category"
-            >
+          <div :class="block.style === 'Full' ? '' : 'col-12 col-sm-6 col-lg-6'" class="p-2" v-for="(item,indexParent) in block.list_service" :key="item">
+            <div  class="fs-5 fw-bold font-mb"  v-html="item.title"></div>
+            <div class="parent">
               <div
-                class="accordion-btn"
-                @click="toggleCategory('list_item_classic', index)"
+                v-for="(itemList, index) in item.list_item"
+                :key="index"
+                class="service-category"
               >
-                <img
-                  class="accordion-icon"
-                  style="margin-right: 5px"
-                  :src="
-                    activeCategories['list_item_classic'] === index
-                      ? block.image_caret_down
-                      : block.image_caret_right
-                  "
-                   :alt="block.image_alt"
-
-                />
-                {{ item.title }}
-              </div>
-            <transition name="slide">
                 <div
-                  v-if="activeCategories['list_item_classic'] === index"
+                  class="accordion-btn"
+                  @click="toggleCategory(indexParent, index)"
+                >
+                  <img
+                    class="accordion-icon"
+                    style="margin-right: 5px"
+                    :src="
+                      activeCategories['list_item'] === index
+                        ? block.image_caret_down
+                        : block.image_caret_right
+                    "
+                     :alt="block.image_alt"
+  
+                  />
+                  {{ itemList.title }}
+                </div>
+              <transition name="slide">
+                  <div
+                  v-if="activeCategories[`${indexParent}-${index}`] === index"
                   class="accordion-content"
-                  v-html="item.desc"
-                ></div>
-            </transition>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-6">
-          <div  class="fs-5 fw-bold font-mb"  v-html="block.server_hybrid"></div>
-          <div class="parent">
-            <div
-              v-for="(item, index) in block.list_item_hybrid"
-              :key="index"
-              class="service-category"
-            >
-              <div
-                class="accordion-btn"
-                @click="toggleCategory('list_item_hybrid', index)"
-              >
-                <img
-                  class="accordion-icon"
-                  style="margin-right: 5px"
-                  :src="
-                    activeCategories['list_item_hybrid'] === index
-                      ? block.image_caret_down
-                      : block.image_caret_right
-                  "
-                  :alt="block.image_alt"
-                />
-                {{ item.title }}
+                    v-html="itemList.desc"
+                  ></div>
+              </transition>
               </div>
-            <transition name="slide">
-                <div
-                  v-if="activeCategories['list_item_hybrid'] === index"
-                  class="accordion-content"
-                  v-html="item.desc"
-                ></div>
-            </transition>
             </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-12 col-sm-6 col-lg-6">
-          <div style="padding-top:20px" class="fs-5 fw-bold font-mb" v-html="block.server_volume"></div>
-          <div class="parent">
-            <div
-              v-for="(item, index) in block.list_item_volume"
-              :key="index"
-              class="service-category"
-            >
-              <div
-                class="accordion-btn"
-                @click="toggleCategory('list_item_volume', index)"
-              >
-                <img
-                  class="accordion-icon"
-                  style="margin-right: 5px"
-                  :src="
-                    activeCategories['list_item_volume'] === index
-                      ? block.image_caret_down
-                      : block.image_caret_right
-                  "
-                  :alt="block.image_alt"
-                />
-                {{ item.title }}
-              </div>
-           <transition name="slide">
-                <div
-                  v-if="activeCategories['list_item_volume'] === index"
-                  class="accordion-content"
-                  v-html="item.desc"
-                ></div>
-           </transition>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-lg-6">
-          <div style="padding-top:20px" class="fs-5 fw-bold font-mb" v-html="block.server_megavolume"></div>
-          <div class="parent">
-            <div
-              v-for="(item, index) in block.list_item_megavolume"
-              :key="index"
-              class="service-category"
-            >
-              <div
-                class="accordion-btn"
-                @click="toggleCategory('list_item_megavolume', index)"
-              >
-                <img
-                  class="accordion-icon"
-                  style="margin-right: 5px"
-                  :src="
-                    activeCategories['list_item_megavolume'] === index
-                      ? block.image_caret_down
-                      : block.image_caret_right
-                  "
-                  :alt="block.image_alt"
-                />
-                {{ item.title }}
-              </div>
-           <transition name="slide">
-                <div
-                  v-if="activeCategories['list_item_megavolume'] === index"
-                  class="accordion-content"
-                  v-html="item.desc"
-                ></div>
-           </transition>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -246,10 +74,12 @@ import { ref } from 'vue'
 
 const activeCategories = ref<Record<string, number | null>>({})
 
-const toggleCategory = (group: string, index: number) => {
-  activeCategories.value[group] =
-    activeCategories.value[group] === index ? null : index
+const toggleCategory = (parentIndex: number, childIndex: number) => {
+  const key = `${parentIndex}-${childIndex}` // Tạo key duy nhất theo từng nhóm
+  activeCategories.value[key] =
+    activeCategories.value[key] === childIndex ? null : childIndex
 }
+
 interface Props {
   dataBinding: any
   block: any
