@@ -20,7 +20,7 @@
                 :key="index"
                 class="col-6 col-sm-3 col-lg-3 col-3"
               >
-                <div :style="{color: block.color}" class="fs-69 counter" :data-target="item.count_up"></div>
+                <div ref="counters" :style="{color: block.color}" class="fs-69 counter" :data-target="item.count_up"></div>
                 <div class="fs-5 desc-mb" v-html=" item.title"></div>
               </div>
 
@@ -90,8 +90,9 @@ const props = defineProps<Props>();
 //   observer.observe(userCounter.value!);
 // });
 
+const counters = ref();
+
 onMounted(() => {
-  const counters = document.querySelectorAll('.counter');
  ///counter:any
   const animateCounter = (counter:any) => {
     const target = +counter.getAttribute('data-target');
@@ -123,7 +124,7 @@ onMounted(() => {
     { threshold: 0.1 } // Kích hoạt khi phần tử hiển thị ít nhất 10%
   );
 
-  counters.forEach((counter) => {
+  counters.value.forEach((counter:any) => {
     observer.observe(counter);
   });
 });

@@ -89,6 +89,7 @@ content_blocks:
         count_up: '65'
       - title: Procedures
         count_up: '74'
+    
 
 # ------------------service-------------------------
 
@@ -119,7 +120,7 @@ content_blocks:
       text: 'Learn more'
       link: '/#'
       background_color: '#FCC5C0'
-      color: 'red'
+      color: '#ffffff'
     
 
 # ------------------Review-------------------------
