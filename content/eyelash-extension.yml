@@ -186,9 +186,7 @@ content_blocks:
     background_color: '#ffffff'
     title: 'Lash RefillsLash Lifts & Tints'
     image: /images/brow-tint.png
-    desc: 'A lash L will dye and darken your natural lashes to create a balanced, effortless look.<br> A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.'                  
-    desc2: 'We use safe, high-quality, award-winning materials to enhance your natural beauty.'
-    desc_link: 'Click here to view our work..'
+    desc: <p> A lash tint will dye and darken your natural lashes to create a balanced, effortless look.<br>A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.&nbsp;<a href="https://www.youtube.com/shorts/-62EiN8nscE" class="custom-color" target="_blank" rel="noopener">Click here to view our work.</a>.</p><p>We use safe, high-quality, award-winning materials to enhance your natural beauty.</p>
     link: 'https://www.youtube.com/shorts/-62EiN8nscE'
     service: 'Serivce'
     regular: 'Time'
@@ -220,7 +218,7 @@ content_blocks:
          price: '15 minutes'
          member: '$60'
 
-     -   title: 'Lash Removal with New Set'
+     -   title: 'Lash Removal '
          price: '15 Minutes'
          member: '$30'
 

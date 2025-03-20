@@ -11,10 +11,9 @@
       <div class="head" itemscope itemtype="http://schema.org/Service" >
         <meta itemprop="serviceType" :content="businessType" />
         <h2 itemprop="name" style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat fs-mb " v-html="block.title"></h2>
-                 <div itemprop="description" style="padding-bottom:14px;display:inline;" class="desc" v-html="block.desc"></div>
+                 <div itemprop="description" style="margin-bottom:14px" class="desc" v-html="block.desc"></div>
                      <div class="d-inline"  style="padding-bottom:14px;padding-left:5px;">
                      <NuxtLink  class="desc" style="color:#FCC5C0;font-size:18px" :to="block.link">{{ block.desc_link }}</NuxtLink>
-                    <div style="padding-bottom:34px;font-size:18px"  class="desc fontMontserrat" v-html="block.desc2"></div>
        </div>
       </div>
       <table class="table"> 
@@ -48,7 +47,7 @@ const dataSite: any = ref(SITE);
 const firstKey = Object.keys(SITE)[0];
 const lengthType = dataSite.value[firstKey].business_type.split('/').length;
 const businessType = dataSite.value[firstKey].business_type.split('/')[lengthType - 1];
-  
+
   interface Props {
     dataBinding: any;
     block: any;
@@ -58,6 +57,10 @@ const businessType = dataSite.value[firstKey].business_type.split('/')[lengthTyp
   </script>
   
 <style lang="scss" scoped>
+.custom-color{
+  color:#FCC5C0 !important;
+  background-color: red;
+}
 .table{
   margin-bottom: 0 !important;
 }
@@ -77,7 +80,11 @@ td{
 .desc{
   color:#333333;
   font-size: 18px;
+   & :deep(a)   {
+    color:#FCC5C0;
+  }
 }
+
 .thead{
   background-color:#FCC5C0 !important;
   color:#fff;
