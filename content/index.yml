@@ -51,13 +51,7 @@ content_blocks:
         desc: 'Volume lashes are a type of eyelash extensions where multiple thin lash extensions are fanned out and applied onto one natural lash, creating a full and dramatic effect. This technique is ideal for those who have sparse lashes or desire a more glamorous look.'
         image: /images/hero-face2.jpg
         image_alt: 'image_alt'
-    button: 
-      is_show: true
-      open_new_tab: false
-      text: 'Book Now'
-      link: '/#'
-      background_color: '#FCC5C0'
-      color: '#fff'
+    
 # ------------------About-------------------------
   - _block_name: section/about
     status: true
@@ -76,7 +70,7 @@ content_blocks:
       text: 'Learn More'
       link: '/#'
       background_color: '#FCC5C0'
-      color: '#fff'
+      color: '#ffffff'
       open_new_tab: false
        
 

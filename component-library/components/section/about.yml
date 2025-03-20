@@ -39,7 +39,6 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   status:
-    status:
     label: Active Section
     type: toggle
   background_color:

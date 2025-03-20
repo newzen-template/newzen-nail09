@@ -33,19 +33,19 @@
         >
           <meta itemprop="serviceType" :content="businessType" />
           <div
-            class="service_item"
+            class="service_item mb-3 "
             :class="{ item: index === 1 || hoverIndex === index }"
             @mouseover="hoverIndex = index"
             @mouseleave="hoverIndex = -1"
           >
-            <div class="d-flex flex-column mb-3 pd">
+            <div class="d-flex flex-column pd">
               <div
                 class="text-center d-flex flex-column justify-content-center align-items-center pt-3"
               >
                 <img v-if="item.img" itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
                 <h3 itemprop="name" class="fs-4 p-3">{{ item.title }}</h3>
                 <div itemprop="description" class="p-2" v-html="item.desc"></div>
-                <NuxtLink v-if="block.button.is_show"  itemprop="url" class="btn-book fontMontserrat"
+                <NuxtLink v-if="block.button.is_show" :to="block.button.link" itemprop="url" class="btn-book fontMontserrat"
                   ><span
                     class="cus-btn text-decoration-underline fw-medium"
                     :style="{backgroundColor: block.button.backgroundColor, color: block.button.color }"
@@ -81,9 +81,11 @@ const hoverIndex = ref(-1);
 
 <style scoped>
 .service_item {
+  overflow: hidden;
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   background-color: #fff;
   border-radius: 30px 30px 30px 30px;
+  outline: 4px solid #ffffff;
   
 }
 .item {
@@ -104,6 +106,7 @@ const hoverIndex = ref(-1);
   background-color: #fff;
 }
 .img-cus {
+  border-radius: 50%;
   max-height: 120px;
   object-fit: contain;
 }

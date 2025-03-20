@@ -9,7 +9,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   status: true
-  background: "#FCC5C0"
+  background_color: "#FCC5C0"
   heading: 'Team'
   title: 'Our Mission'
   content: >-

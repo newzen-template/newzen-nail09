@@ -7,18 +7,19 @@
   >
     <div class="my__container row d-flex" itemscope itemtype="http://schema.org/AboutPage">
        <div class=" col-12 col-sm-6 col-lg-6 col-6 text-end position-relative pd">
-         <img v-if="block.list_img.image_big" itemprop="image" class="me-3 w-ip" :src="block.list_img.image_big" />
-         <img v-if="block.list_img.image_large" class="position-absolute z-2 img-mb" style="left: -8%;top:-20%;":src="block.list_img.image_large" :alt="block.image_large_alt">
-         <img  class="position-absolute" style="left: 26%;top:-20%;"  src="/images/hero-leafs.png" :alt="block.list_img.image_large_alt">
-         <img  class="position-absolute"  style="right:8%;top:-25%;"  src="/images/hero-dots-1.png" :alt="block.list_img.image_large_alt">
-         <img  class="position-absolute" style="left:3%;bottom:-8%;" src="/images/hero-dots-2.png" :alt="block.list_img.image_large_alt">
+         <img style="max-height: 619px;"  v-if="block.list_img.image_big" itemprop="image" class="me-3 w-ip" :src="block.list_img.image_big" />
+         <img  v-if="block.list_img.image_large" class="position-absolute z-2 img-mb" style="left: -8%;top:-20%;max-height:153px":src="block.list_img.image_large" :alt="block.image_large_alt">
+         <img  class="position-absolute" style="left: 26%;top:-20%;max-height: 197px;"  src="/images/hero-leafs.png" :alt="block.list_img.image_large_alt">
+         <img   class="position-absolute"  style="right:8%;top:-25%;max-height: 99px;"  src="/images/hero-dots-1.png" :alt="block.list_img.image_large_alt">
+         <img   class="position-absolute" style="left:3%;bottom:-8%;max-height: 99px;" src="/images/hero-dots-2.png" :alt="block.list_img.image_large_alt">
  
        </div>
        <div class=" col-12 col-sm-6 col-lg-6 col-6 d-flex flex-column align-items-start gap-4 justify-content-center" style="padding:10px">
           <div class="fs-5 fontMontserrat fw-normal fs-mb" style="text-transform: uppercase;" v-html="block.session" :style="{color: block.color}"></div>
           <div itemprop="name" class="fs-1 fontMontserrat fw-bold colortx1 title-mb" v-html="block.title"></div>
           <div itemprop="description" class="desc-mb" v-html="block.desc"></div>
-          <NuxtLink :style="{backgroundColor: block.button.background_color, color: block.button.color}" itemprop="url" v-if="block.button.is_show" class="btn-book d-inline-flex fz18 text-decoration-underline text-mb"  style="padding:15px 40px">{{block.button.text  }}  </NuxtLink>
+            
+            <NuxtLink :style="{backgroundColor: block.button.background_color, color: block.button.color}" :to="block.button.link" itemprop="url" v-if="block.button.is_show" class="btn-book d-inline-flex fz18 text-decoration-underline text-mb"  style="padding:15px 40px">{{block.button.text  }}  </NuxtLink>
        </div>
     </div>
   </section>

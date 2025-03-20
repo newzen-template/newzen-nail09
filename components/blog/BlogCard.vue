@@ -4,6 +4,7 @@
       <div class="w-100">
         <div>
           <NuxtLink class="text-reset text-decoration-none" :to="data._path">
+            
             <div class="item-post-blog mb-3">
               <div class="item-post-blog-background"></div>
               <img

@@ -57,7 +57,7 @@ const hoverIndex = ref(-1);
   padding: 40px 20px 40px 20px;
 }
 .img-cus{
-  height: 120px;
+  max-height: 120px;
   object-fit: contain;
 }
 .section_hero{
