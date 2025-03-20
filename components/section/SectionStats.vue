@@ -3,7 +3,7 @@
     v-if="block.status"
     :data-cms-bind="dataBinding"
     :style="{ backgroundImage: `url(${block.image_background})`,backgroundColor: block.background_color }"
-    style="background-position: center"
+    style="background-position: center;margin-bottom:96px"
     class="wh count-section"
     
   >

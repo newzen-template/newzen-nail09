@@ -7,13 +7,12 @@
       :style="{backgroundImage: `url(${block.background_image})`, backgroundColor:block.background_color}"
     >
        
-<div class="total my__container"  style="background-color: transparent";>
+<div class="total my__container"  style="background-color: transparent">
       <div class="head" itemscope itemtype="http://schema.org/Service" >
         <meta itemprop="serviceType" :content="businessType" />
         <h2 itemprop="name" style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat fs-mb " v-html="block.title"></h2>
                  <div itemprop="description" style="margin-bottom:14px" class="desc" v-html="block.desc"></div>
                      <div class="d-inline"  style="padding-bottom:14px;padding-left:5px;">
-                     <NuxtLink  class="desc" style="color:#FCC5C0;font-size:18px" :to="block.link">{{ block.desc_link }}</NuxtLink>
        </div>
       </div>
       <table class="table"> 
