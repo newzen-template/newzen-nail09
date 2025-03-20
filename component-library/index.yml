@@ -43,7 +43,7 @@ _inputs:
     description:
   title:
     type: text
-    label: Page title
+    label:  title
     description:
   img:
     type: image

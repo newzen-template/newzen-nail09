@@ -21,7 +21,7 @@
                 class="col-6 col-sm-3 col-lg-3 col-3"
               >
                 <div :style="{color: block.color}" class="fs-69 counter" :data-target="item.count_up"></div>
-                <h3 class="fs-5 desc-mb">{{ item.title }}</h3>
+                <div class="fs-5 desc-mb" v-html=" item.title"></div>
               </div>
 
               <!-- <div class="col-6 col-sm-3 col-lg-3 col-3">
@@ -92,8 +92,8 @@ const props = defineProps<Props>();
 
 onMounted(() => {
   const counters = document.querySelectorAll('.counter');
-
-  const animateCounter = (counter) => {
+ ///counter:any
+  const animateCounter = (counter:any) => {
     const target = +counter.getAttribute('data-target');
     let current = 0;
     const increment = target / 100; // Điều chỉnh tốc độ đếm
