@@ -30,7 +30,7 @@ _inputs:
     label: Background Color
     type: color
   image:
-    label: Section Image
+    label: Image serivce
     type: image
   image_alt:
     label: Section Image Alt Text

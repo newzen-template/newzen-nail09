@@ -43,7 +43,7 @@
                 class="text-center d-flex flex-column justify-content-center align-items-center pt-3"
               >
                 <img v-if="item.img" itemprop="image" class="img-cus" :src="item.img" :alt="block.image_alt" />
-                <h3 itemprop="name" class="fs-4 p-3">{{ item.title }}</h3>
+                <div itemprop="name" class="fs-4 p-3" v-html="item.title "></div>
                 <div itemprop="description" class="p-2" v-html="item.desc"></div>
                 <NuxtLink v-if="block.button.is_show" :to="block.button.link" itemprop="url" :style=" {backgroundColor: block.button.background_color,color: block.button.color}" class="btn-book fontMontserrat"
                   ><span

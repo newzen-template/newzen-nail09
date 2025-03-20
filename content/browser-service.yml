@@ -37,7 +37,7 @@ content_blocks:
     image_dot1_alt: 'hero-dots-2'
 
 
-  - _block_name: section/Browservice
+  - _block_name: section/browservice
     status: true
     background_color: '#ffffff'
     title: 'Brow Services'

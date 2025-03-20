@@ -49,7 +49,7 @@ _inputs:
     label: Section Title
     type: markdown
   image:
-    label: Section Image
+    label: Image 
     type: image
   list_service[*].title:
     label: Service Title

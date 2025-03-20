@@ -39,5 +39,5 @@ _inputs:
     label: Image Section
     type: image
   list_treatment[*].image_alt:
-    label: Title Section
+    label: Image Alt
     type: text

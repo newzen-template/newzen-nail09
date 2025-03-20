@@ -6,26 +6,28 @@
       :data-cms-bind="dataBinding"
       :style="{backgroundImage: `url(${block.background_image})`, backgroundColor: block.background_color}"
     >
-<div class="total my__container">
+<div class="total my__container " >
       <div class="head">
          <div style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat " v-html="block.title"></div>
       </div>
-      <table class="table"> 
-        <thead>
-          <tr >
-            <th class="fontMontserrat fw-normal thead" >{{block.service  }}</th>
-            <th class="fontMontserrat fw-normal thead"  >{{block.regular  }}</th>
-            <th class="fontMontserrat fw-normal thead"  >{{ block.member }}</th>
-          </tr>
-        </thead>
-        <tbody class="tbody">
-          <tr v-for="(item, index) in block.list_item" :key="index" :style="{ backgroundColor: index % 2 !== 0 ? 'hsla(0, 0%, 50.2%, .0705882353)' : '' }">
-            <td class="fontMontserrat f-14" >{{ item.title }}</td>
-            <td class="fontMontserrat f-14" >{{ item.price }}</td>
-            <td class="fontMontserrat f-14" >{{ item.member }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="overflow-x: auto;">
+        <table class="table" style="padding:10px"> 
+          <thead>
+            <tr >
+              <th class="fontMontserrat fw-normal thead" v-html="block.service"></th>
+              <th class="fontMontserrat fw-normal thead"  v-html="block.regular"></th>
+              <th class="fontMontserrat fw-normal thead"  v-html="block.member"></th>
+            </tr>
+          </thead>
+          <tbody class="tbody" style="padding:10px">
+            <tr v-for="(item, index) in block.list_item" :key="index" :style="{ backgroundColor: index % 2 !== 0 ? 'hsla(0, 0%, 50.2%, .0705882353)' : '' }">
+              <td class="fontMontserrat f-14" v-html="item.title" ></td>
+              <td class="fontMontserrat f-14" v-html=" item.price " ></td>
+              <td class="fontMontserrat f-14" v-html=" item.member" ></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </div>
 
 <!-- <div class="total my__container">
@@ -138,7 +140,6 @@ th:hover{
  tr:nth-child(odd):hover {
     background-color: hsla(0, 0%, 50.2%, .1019607843) !important;
 }
-
 
 
 </style>

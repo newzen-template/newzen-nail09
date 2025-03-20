@@ -17,6 +17,8 @@ blueprint:
          desc: 'Elevate your natural lashes with the original lash extension technique.'
   image_dot1: /images/dots-large1.png
   image_dot1_alt: 'hero-dots-2'
+  image_dot2: /images/dots-large2.png
+  image_dot2_alt: 'hero-dots-2'
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
@@ -41,4 +43,10 @@ _inputs:
     type: image
   image_dot1_alt:
     label: Decorative Image 1 Alt Text
+    type: text
+  image_dot2:
+    label: Decorative Image 2
+    type: image
+  image_dot2_alt:
+    label: Decorative Image 2 Alt Text
     type: text

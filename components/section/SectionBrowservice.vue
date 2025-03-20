@@ -6,13 +6,13 @@
       :data-cms-bind="dataBinding"
       :style="{backgroundImage: `url(${block.background_image})`, backgroundColor: block.background_color}"
     >
-<div class="total my__container">
+<div class="total my__container" style="background-color: transparent;">
       <div class="head">
          <div style="padding-bottom:20px"  class="heading fs-1 fw-bold fontMontserrat " v-html="block.title"></div>
          <div style="padding-bottom:14px" class="desc fontMontserrat" v-html="block.desc"></div>
          <div style="padding-bottom:34px"  class="desc fontMontserrat" v-html="block.desc2"></div>
       </div>
-      <table class="table"> 
+      <table class="table" style="padding:10px"> 
         <thead>
           <tr >
             <th class="fontMontserrat f-5 fw-semibold thead" >{{  block.service }}</th>
@@ -20,7 +20,7 @@
             <th class="fontMontserrat f-5 fw-semibold thead" >{{ block.member }}</th>
           </tr>
         </thead>
-        <tbody class="tbody">
+        <tbody class="tbody" style="padding:10px">
           <tr v-for="(item, index) in block.list_item" :key="index" :style="{ backgroundColor: index % 2 !== 0 ? 'hsla(0, 0%, 50.2%, .1019607843)' : '' }">
             <td class="fontMontserrat" >{{ item.title  }}</td>
             <td class="fontMontserrat" >{{ item.price  }}</td>

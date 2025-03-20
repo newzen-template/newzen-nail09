@@ -36,7 +36,7 @@ _inputs:
     label: Section Title
     type: markdown
   image:
-    label: Section Image
+    label: Image dot
     type: image
   desc:
     label: Membership Details
