@@ -24,18 +24,22 @@ content_blocks:
      -   title: 'Classic'
          image: /images/eye-classic.png
          desc: 'Elevate your natural lashes with the original lash extension technique.'
+         image_alt: 'image_alt'
 
      -   title: 'Hybrid'
          image: /images/eye-hybird.png
          desc: 'Experience both techniques or transition from classic lashes to volume lashes.'
-
+         image_alt: 'image_alt'
+         
      -   title: 'volume'
          image: /images/eye-volume.png
          desc: 'Embrace a healthier and longer-lasting look with thin, light volume lashes.'
-
+         image_alt: 'image_alt'
+         
      -   title: 'Mega'
          image: /images/eye-mega.png
-         desc: 'Enjoy a full, bold look with this striking megavolume lash extension technique.'                 
+         desc: 'Enjoy a full, bold look with this striking megavolume lash extension technique.'          
+         image_alt: 'image_alt'
     image_dot1: /images/dots-large1.png
     image_dot1_alt: 'hero-dots-2'
     image_dot2: /images/dots-large2.png

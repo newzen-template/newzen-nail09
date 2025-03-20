@@ -28,12 +28,6 @@ content_blocks:
         image_large_alt: 'image-alt'
         image_big: /images/about_eyelush1.png
         image_big_alt: 'image-alt'
-        image_leaf: /images/hero-leafs.png
-        image_leaf_alt: 'image-alt'
-        image_dot1: /images/hero-dots-1.png
-        image_dot1_alt: 'image-alt'
-        image_dot2: /images/hero-dots-2.png
-        image_dot2_alt: 'image-alt'
     session: 'About Us'
     title: 'About Lavi Lash Salon'
     desc: 'Lavilash and Brow Page is a renowned beauty salon and spa that specializes in providing exceptional eyelash and eyebrow services. With a strong reputation for delivering stunning results, they have gained a loyal clientele and are considered a go-to destination for enhancing the beauty of one’s eyes and brows.'

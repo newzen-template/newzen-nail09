@@ -11,7 +11,7 @@
                       <div class="service_item" :class="{'hovered': hoverIndex === index}" @mouseover = "hoverIndex = index" @mouseleave="hoverIndex = -1">
                       <div class="d-flex flex-column mb-3 pd  ">
                         <div lass="text-center d-flex flex-column justify-content-center align-items-center pt-3 ">
-                              <img class="img-cus" :src="item.image" alt="service">
+                              <img class="img-cus" :src="item.image" :alt="item.image_alt">
                               <h3 class="fz-22 fontMontserrat p-3">{{ item.title.toUpperCase() }}</h3>
                               <div class="p-2 pd-ip">{{ item.desc }}</div>
                       </div>
@@ -19,8 +19,8 @@
             </div>
         
               </div>
-            <img class="cus-dot" v-if="block.image_dot1" :src="block.image_dot1" />
-            <img class="cus-dot cus-dot-two" v-if="block.image_dot2" :src="block.image_dot2" />
+            <img class="cus-dot" v-if="block.image_dot1"  :alt="block.image_dot1_alt" :src="block.image_dot1" />
+            <img class="cus-dot cus-dot-two" v-if="block.image_dot2" :alt="block.image_dot2_alt" :src="block.image_dot2" />
               
        
           </div>
