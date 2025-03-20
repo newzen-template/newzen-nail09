@@ -204,26 +204,26 @@ content_blocks:
                <p>One extension is glued to one natural lash with 60-70% coverage.</p>
                <p>Artist 1: $225<br>Artist 2: $250<br>Artist 3: $275</p> 
            
-#   - _block_name: service/item
-#     status: true
-#     background_color: '#ffffff'
-#     title: 'Lash RefillsLash Lifts & Tints'
-#     desc: <p> A lash tint will dye and darken your natural lashes to create a balanced, effortless look.<br>A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.&nbsp;<a href="https://www.youtube.com/shorts/-62EiN8nscE" class="custom-color" target="_blank" rel="noopener">Click here to view our work.</a>.</p><p>We use safe, high-quality, award-winning materials to enhance your natural beauty.</p>
-#     service: 'Serivce'
-#     regular: 'Time'
-#     member: 'Price'
-#     list_item:
-#      -   title: 'Lash Tint'
-#          price: '15 minutes'
-#          member: '$40'
+  - _block_name: service/item
+    status: true
+    background_color: '#ffffff'
+    title: 'Lash RefillsLash Lifts & Tints'
+    desc: <p> A lash tint will dye and darken your natural lashes to create a balanced, effortless look.<br>A lash lift, or lash perm, will curl and set your natural lashes with a special perming solution and roller.&nbsp;<a href="https://www.youtube.com/shorts/-62EiN8nscE" class="custom-color" target="_blank" rel="noopener">Click here to view our work.</a>.</p><p>We use safe, high-quality, award-winning materials to enhance your natural beauty.</p>
+    service: 'Serivce'
+    regular: 'Time'
+    member: 'Price'
+    list_item:
+     -   title: 'Lash Tint'
+         price: '15 minutes'
+         member: '$40'
 
-#      -   title: 'Lash Lift'
-#          price: '60 Minutes'
-#          member: '$100'
+     -   title: 'Lash Lift'
+         price: '60 Minutes'
+         member: '$100'
 
-#      -   title: 'Lash Lift & Tint'
-#          price: '75 Minutes'
-#          member: '$120'
+     -   title: 'Lash Lift & Tint'
+         price: '75 Minutes'
+         member: '$120'
 
   - _block_name: service/item
     status: true
