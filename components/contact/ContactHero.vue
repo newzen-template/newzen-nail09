@@ -3,63 +3,59 @@
         v-if="block.status" 
         :data-cms-bind="dataBinding" 
         style="margin-top: 6em;margin-bottom:6em"
+        class="margin-mb"
         :style="{backgroundColor: block.background_color}"
     >
-      <div class="my__container text-center">
-          <div class="" style="padding:10px">
+      <div class="my__container row">
+          <div class="col-12 col-md-6 col-lg-6" style="padding:10px">
            <div>
-              <div class="title mb-20" v-html="block.title" :style="{color: block.color}" style="font-size:20px"></div>
-              <div style="line-height: 60px;" class="heading fs-1 fw-bold fontMontserrat mb-20"v-html="block.heading"></div>
+              <div class="title mb-20" v-html="block.title" :style="{color: block.color}" style="font-size:20px;text-transform:uppercase"></div>
+              <div style="line-height: 60px;" class="heading fs-1 fw-bold fontMontserrat mb-20" v-html="block.heading"></div>
               <div class="desc mb-20" v-html="block.desc"></div>
            </div>
-      <div class="d-flex">
-              <div class="text-center content">
-                <div   v-for="item, index in block.list_item" :key="index">
-                <NuxtLink  class="text-center text-reset cus-hover" v-if="item.link" :to="item.link"
+                <div v-for="item, index in block.list_item" :key="index">
+                <NuxtLink style="padding-bottom:18px"  class="text-reset cus-hover" v-if="item.link" :to="item.link"
                   :target="item?.open_new_tab ? '_blank' : ''">
                   <img style="margin-right:10px" v-if="item.image" class="" :src="item.image" :alt="item.label" >
                   {{ item.label }}
                 </NuxtLink>
                 </div>
-              </div>
       </div>
-      <!-- <div class="col-6" >
-      <div style="padding-left:12px">
+      <div class="col-12 col-md-6 col-lg-6 width-mb" style="padding-left:12px">
            <div class="row pb-18 " >
-                <div class="col-6 pl-16" >
+                <div class="col-12 col-md-6 col-lg-6 pl-16" >
                   <label class="pd-9" for="form-field-name " >Name</label>
                   <input type="text" class="form-control" id="form-field-name" >
-                </div>
-                <div class="col-6 pl-16">
+                </div> 
+                <div class="col-12 col-md-6 col-lg-6 pl-16">
                   <label class="pd-9  required-asterisk" for="form-field-email required ">Email</label>
                   <input type="text" class="form-control" id="form-field-email">
                 </div>
            </div>
            <div class="row pb-18">
-                <div class="col-6 pl-16">
+                <div class="col-12 col-md-6 col-lg-6 pl-16">
                         <label class="pd-9" for="form-field-phone ">Phone</label>
                         <input type="tel" pattern="[0-9()#&+*-=.]+" class="form-control" id="form-field-phone" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
                 </div>
-                <div class="col-6 pl-16">
+                <div class="col-12 col-md-6 col-lg-6 pl-16">
                         <label class="pd-9 required-asterisk" for="form-field-subject required ">Subject</label>
                         <input type="text" class="form-control" id="form-field-subject">
                 </div>
            </div>
-           <div class="row pb-18 pl-16">
+           <div class="row pb-18">
                 <div class="col-12" style="padding-bottom:18px">
                         <label class="pd-9 required-asterisk" for="form-field-message required ">Message</label>
                         <textarea style="min-height:200px" type="text" class="form-control" id="form-field-message" ></textarea>
                 </div>
            </div>
-      </div>
-              <NuxtLink style="margin-left:12px" class="btn-book" >
+           <NuxtLink class="btn-book" >
                 {{ block.button.text }}
-                <img  :src="block.button.img" />
+                <img  :src="block.button.image" />
               </NuxtLink>
-          </div> -->
-
       </div>
-    </div>
+            
+          </div>
+
 
     </section>
   </template>
@@ -133,11 +129,24 @@ img{
   outline: none;
   box-shadow: 0 0 0 2px #fcc5c0;
 } 
-.content{
-  max-width: 70%;
-  margin: 0 auto;
-}
-@media (max-width: 768px) {
 
+@media (max-width: 1024px) {
+ .margin-mb{
+  margin-top: 3em !important;
+  margin-bottom: 3em !important; }
+}
+// .width-mb{
+//   max-width: 470px;
+// }
+@media (max-width: 768px) {
+ .margin-mb{
+  margin-top: 3em !important;
+  margin-bottom: 3em !important; }
+}
+@media (max-width: 576px) {
+ .margin-mb{
+  margin-top: 3em !important;
+  margin-bottom: 3em !important; 
+}
 }
   </style>
