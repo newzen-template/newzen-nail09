@@ -391,26 +391,35 @@
                       </div>
                     </div>
                   </div>
-
+                  <div class="relative flex items-center gap-2.5 py-1.5 px-2">
+                      <div class="relative  w-full h-2.5 overflow-hidden rounded-3xl bg-gray-100">
+                        <div role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                          style="width:100% "
+                          class="flex h-full items-center transition-all duration-100 ease-linear justify-center bg-indigo-600  text-white rounded-3xl">
+                        </div>
+                      </div>
+                      <span
+                        class="ml-2 bg-white rounded-full  text-gray-800 text-xs font-medium flex justify-center items-center ">100%</span>
+                    </div>
                   <div
                     class="position-relative d-flex align-items-center gap-2 p-2 py-1"
                   >
                     <div
-                      class="position-relative w-100"
+                      class="position-relative w-100 "
                       style="
                         height: 10px;
                         overflow: hidden;
                         border-radius: 24px;
-                        background-color: #f3f4f6;
-                      "
+                        background-color: #f3f4f6;"
                     >
                       <div
                         role="progressbar"
                         aria-valuenow="100"
                         aria-valuemin="0"
                         aria-valuemax="100"
-                        style="width: 100%; background-color: #0d6efd"
-                        class="d-flex h-100 align-items-center justify-content-center text-white rounded-pill"
+                        
+                        style=" background-color: #0d6efd;width: 100%;"
+                        class="d-flex h-100 align-items-center justify-content-center text-white rounded-pill transition-all duration-100 ease-linear"
                       ></div>
                     </div>
                     <span
@@ -529,18 +538,7 @@
                       class="position-relative w-100 overflow-hidden rounded-pill bg-light"
                       style="height: 8px"
                     >
-                      <div
-                        class="progress-bar bg-primary"
-                        role="progressbar"
-                        :style="{
-                          width: percentCompleteUploadFile[key].value
-                            ? `${percentCompleteUploadFile[key].value}%`
-                            : '0%',
-                        }"
-                        aria-valuenow="100"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
+                    
                     </div>
 
                     <div
