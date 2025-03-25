@@ -88,9 +88,8 @@ content_blocks:
         status_error: true
         error: Please this is a required field.
         label: Attachments 2 (for Resume, References, etc)
-        placehoder: PNG, JPG or PDF, smaller than 15MB dasds
+        placehoder: PNG, JPG or PDF, smaller than 15MB
         width_fields: full
-
     button:
         background: "#FCC5C0"
         color: "#ffffff"
