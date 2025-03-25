@@ -21,8 +21,8 @@ content_blocks:
     status: true
     background_color: '#ffffff'
     title: 'Contact Us'
+    color: '#FCC5C0'                       
     heading: 'Get In Touch <br>  With Us'
-    color: '#FCC5C0'
     desc: 'Experience Exceptional Beauty Services: Lavilash & Brow is Your Destination!'
     list_item:
     -   image: /images/user-clock-solid.png
@@ -84,12 +84,12 @@ content_blocks:
         placehoder: Please enter message
         width_fields: full  
         
-      # - fields: file
-      #   status_error: true
-      #   error: Please this is a required field.
-      #   label: Attachments 2 (for Resume, References, etc)
-      #   placehoder: PNG, JPG or PDF, smaller than 15MB dasds
-      #   width_fields: full
+      - fields: file
+        status_error: true
+        error: Please this is a required field.
+        label: Attachments 2 (for Resume, References, etc)
+        placehoder: PNG, JPG or PDF, smaller than 15MB dasds
+        width_fields: full
 
     button:
         background: "#FCC5C0"

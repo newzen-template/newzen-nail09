@@ -233,10 +233,10 @@
         </div>
 
         <div
-          class=""
+          class="d-flex"
           :class="{
             'justify-content-center': block.button.align_button === 'center',
-            'justif-content-start': block.button.align_button === 'left',
+            'justify-content-start': block.button.align_button === 'left',
             'justify-content-end': block.button.align_button === 'right',
           }"
         >

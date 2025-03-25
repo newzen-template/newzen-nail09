@@ -59,14 +59,14 @@ blueprint:
         label: Message
         placehoder: Please enter message
         width_fields: full  
-        
-      # - fields: file
-      #   status_error: true
-      #   error: Please this is a required field.
-      #   label: Attachments 2 (for Resume, References, etc)
-      #   placehoder: PNG, JPG or PDF, smaller than 15MB dasds
-      #   width_fields: full
 
+      - fields: file
+        status_error: true
+        error: Please this is a required field.
+        label: Attachments 2 (for Resume, References, etc)
+        placehoder: PNG, JPG or PDF, smaller than 15MB dasds
+        width_fields: full
+    
   button:
         background: "#FCC5C0"
         color: "#ffffff"
@@ -82,10 +82,10 @@ _inputs:
     label: Active Section
     type: toggle
   title:
-    label: Section Title
+    label: Title Section
     type: markdown
   color:
-    label: Section Color
+    label: Color Title
     type: color
   heading:
     label: Section Heading
@@ -98,12 +98,12 @@ _inputs:
     type: image
   list_item[*].label:
     label: Item Label
-    type: markdown
+    type: text
   list_item[*].link:
     label: Item Link
     type: text
   color_text: 
-    label: Color Text
+    label: Color Text 
     type: color
   border:
     label: Border Radius Fields
@@ -172,6 +172,7 @@ _inputs:
       - 1/3
       - 1/4
       - full
+    
   button.align_button:
     label: Align Button
     type: select
