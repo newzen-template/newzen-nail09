@@ -653,8 +653,9 @@ interface Props {
   block: any;
 }
 const tenant_id = ref();
-if (dataJson?.length > 0) {
-  tenant_id.value = dataJson.find((item: any) => {
+const dataJsonData:any = ref(dataJson);
+if (dataJsonData.value?.length > 0) {
+  tenant_id.value = dataJsonData.value.find((item: any) => {
     return item.plugin_identity === "com.newzen.contact-plugin";
   })?.data.tenant_id;
 }
@@ -699,7 +700,8 @@ function ShowPopup(
   title: "Success" | "Error" | "Warning",
   message: string,
   color: "success" | "error" | "warning",
-  active: boolean
+  active: boolean,
+  time: number = 3000
 ) {
   popupTitle.value = title;
   popupMessage.value = message;
@@ -711,6 +713,9 @@ function ShowPopup(
     colorPopup.value = "#FFC107"; // Màu vàng cho warning
   }
   showNotification.value = active;
+  setTimeout(() => {
+    showNotification.value = false;
+  }, time);
 }
 
 const handleOnchaneTypeFile = (event: any, key: any) => {
