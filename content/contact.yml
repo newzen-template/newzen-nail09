@@ -40,8 +40,63 @@ content_blocks:
     -   image: /images/map-pin-solid.png
         label: '627 Commonwealth Avenue Boston, MA 02215'              
         link: '#'
-  
-    button:
-        text: 'Submit'
-        image: images/paper-plane-solid.png
+        
+  # ------------------Form-------------------------
+    form_width: 1/2
+    border: 0
+    color_text: "#666666"
+    form:
+      - fields: text
+        status_error: true
+        error: Please this is a required field.
+        label: Name
+        placehoder: Please enter first name
+        width_fields: 1/2
 
+     
+        
+      - fields: email
+        status_error: true
+        error: Please this is a required field.
+        label: Email
+        placehoder: Please enter email
+        width_fields: 1/2
+
+      
+      - fields: tel
+        status_error: true
+        error: Please this is a required field.
+        label: Phone 
+        placehoder: Please enter phone number
+        width_fields: 1/2
+
+      - fields: text
+        status_error: true
+        error: Please this is a required field.
+        label: Subject
+        placehoder: Please enter last name
+        width_fields: 1/2  
+
+      - fields: textarea
+        status_error: true
+        error: Please this is a required field.
+        label: Message
+        placehoder: Please enter message
+        width_fields: full  
+        
+      # - fields: file
+      #   status_error: true
+      #   error: Please this is a required field.
+      #   label: Attachments 2 (for Resume, References, etc)
+      #   placehoder: PNG, JPG or PDF, smaller than 15MB dasds
+      #   width_fields: full
+
+    button:
+        background: "#FCC5C0"
+        color: "#ffffff"
+        border: 25
+        text_button: Submit
+        variant: solid
+        width_button: auto
+        align_button: left
+        image: images/paper-plane-solid.png

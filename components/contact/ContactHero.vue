@@ -1,27 +1,271 @@
 <template>
-    <section 
-        v-if="block.status" 
-        :data-cms-bind="dataBinding" 
-        style="margin-top: 6em;margin-bottom:6em"
-        class="margin-mb"
-        :style="{backgroundColor: block.background_color}"
-    >
-      <div class="my__container row">
-          <div class="col-12 col-md-6 col-lg-6" style="padding:10px">
-           <div>
-              <div class="title mb-20" v-html="block.title" :style="{color: block.color}" style="font-size:20px;text-transform:uppercase"></div>
-              <div style="line-height: 60px;" class="heading fs-1 fw-bold fontMontserrat mb-20" v-html="block.heading"></div>
-              <div class="desc mb-20" v-html="block.desc"></div>
-           </div>
-                <div v-for="item, index in block.list_item" :key="index">
-                <NuxtLink style="padding-bottom:18px"  class="text-reset cus-hover" v-if="item.link" :to="item.link"
-                  :target="item?.open_new_tab ? '_blank' : ''">
-                  <img style="margin-right:10px" v-if="item.image" class="" :src="item.image" :alt="item.label" >
-                  {{ item.label }}
-                </NuxtLink>
-                </div>
+  <section
+    v-if="block.status"
+    :data-cms-bind="dataBinding"
+    style="margin-top: 6em; margin-bottom: 6em"
+    class="margin-mb"
+    :style="{ backgroundColor: block.background_color }"
+  >
+    <div class="my__container row">
+      <div class="col-12 col-md-6 col-lg-6" style="padding: 10px">
+        <div>
+          <div
+            class="title mb-20"
+            v-html="block.title"
+            :style="{ color: block.color }"
+            style="font-size: 20px; text-transform: uppercase"
+          ></div>
+          <div
+            style="line-height: 60px"
+            class="heading fs-1 fw-bold fontMontserrat mb-20"
+            v-html="block.heading"
+          ></div>
+          <div class="desc mb-20" v-html="block.desc"></div>
+        </div>
+        <div v-for="(item, index) in block.list_item" :key="index">
+          <NuxtLink
+            style="padding-bottom: 18px"
+            class="text-reset cus-hover"
+            v-if="item.link"
+            :to="item.link"
+            :target="item?.open_new_tab ? '_blank' : ''"
+          >
+            <img
+              style="margin-right: 10px"
+              v-if="item.image"
+              class=""
+              :src="item.image"
+              :alt="item.label"
+            />
+            {{ item.label }}
+          </NuxtLink>
+        </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-6 width-mb" style="padding-left:12px">
+
+      <div
+        class="col-12 col-md-6 col-lg-6"
+        :class="{
+          'md:w-1/2 w-full': block.form_width === '1/2',
+          'w-full': block.form_width === 'full',
+        }"
+      >
+        <div v-if="block.form" class="row">
+          <div
+            v-for="(item, key) in block.form"
+            :key="key"
+            :class="{
+              'col-6': item.width_fields === '1/2',
+              'col-12': item.width_fields === 'full',
+            }"
+          >
+            <div style="margin-bottom:18px" v-if="item.fields === 'text'">
+             <div>
+                <label
+                  v-if="item.label"
+                  :style="`color: ${block.color_text}`"
+                  class="custom_label"
+                  >{{ item.label
+                  }}<span style="color:red;padding-left: 5px;" v-if="item.status_error && key !== 0">*</span></label
+                >
+             </div>
+              <div>
+                <input
+                  :type="item.field"
+                  v-model="formState[key].value"
+                  class="cus-input"
+                  :style="{
+                    borderRadius: block.border ? `${block.border}px` : '0px',
+                    color: block.color_text,
+                  }"
+                  :class="{
+                    'border-red-500':
+                      (item.status_error &&
+                        fieldError[key] &&
+                        !formState[key].value) === true,
+                  }"
+                  style="box-shadow: 0 0 0 transparent;width:100%;"
+                />
+              </div>
+              <div
+                v-if="
+                  item.status_error && fieldError[key] && !formState[key].value
+                "
+              >
+                <span class="">{{ item.error }}</span>
+              </div>
+            </div>
+
+            <div tyle="margin-bottom:18px" v-if="item.fields === 'email'">
+              <div>
+                <label
+                  v-if="item.label"
+                  :style="`color: ${block.color_text}`"
+                  class="custom_label"
+                  >{{ item.label
+                  }}<span style="color:red;padding-left: 5px;" v-if="item.status_error">*</span></label
+                >
+              </div>
+              <input
+                :type="item.field"
+                v-model="formState[key].value"
+                 class="cus-input"
+                :style="{
+                  borderRadius: block.border ? `${block.border}px` : '0px',
+                  color: block.color_text,
+                }"
+                style="box-shadow: 0 0 0 transparent;width:100%"
+              />
+              <div v-if="item.status_error">
+                <div v-if="fieldError[key] && !formState[key].value">
+                  <span class="">{{ item.error }}</span>
+                </div>
+                <div v-else-if="errorEmail">
+                  <span class="">Invalid email format.</span>
+                </div>
+              </div>
+            </div>
+
+            <div tyle="margin-bottom:18px" v-if="item.fields === 'tel'">
+             <div>
+                <label
+                  v-if="item.label"
+                  :style="`color: ${block.color_text}`"
+                  class="custom_label"
+                  >{{ item.label }}</label
+                >
+             </div>
+              <input
+                :type="item.field"
+                v-model="formState[key].value"
+                @input="onPhoneNumberInput($event)"
+                maxlength="12"
+                :class="{
+                  'border-red-500':
+                    item.status_error === true &&
+                    ((fieldError[key] === true && !formState[key].value) ||
+                      errorPhone === true),
+                }"
+                class="cus-input"
+                :style="{
+                  borderRadius: block.border ? `${block.border}px` : '0px',
+                  color: block.color_text,
+                }"
+                style="box-shadow: 0 0 0 transparent;width:100%"
+              />
+              <div v-if="item.status_error">
+                <div v-if="fieldError[key] && !formState[key].value">
+                  <span class="">{{ item.error }}</span>
+                </div>
+                <div v-else-if="errorPhone">
+                  <span class="">Invalid phone number format.</span>
+                </div>
+              </div>
+            </div>
+
+            <div tyle="margin-bottom:18px" v-if="item.fields === 'textarea'">
+              <label
+                v-if="item.label"
+                :style="`color: ${block.color_text}`"
+                class="custom_label"
+                >{{ item.label }}
+                <span style="color:red;padding-left: 3px;" v-if="item.status_error">*</span></label
+              >
+              <br />
+              <textarea
+                rows="9"
+                class="cus-input"
+                :style="{
+                  borderRadius: block.border ? `${block.border}px` : '0px',
+                  color: block.color_text,
+                }"
+                style="box-shadow: 0 0 0 transparent; width: 100%"
+              ></textarea>
+              <div
+                v-if="
+                  item.status_error && fieldError[key] && !formState[key].value
+                "
+              >
+                <span class="">{{ item.error }}</span>
+              </div>
+            </div>
+
+            <!-- <div class="" v-if="item.fields === 'file'">
+                <label v-if="item.label" :style="`color: ${block.color_text}`" class="custom_label">{{
+                  item.label }}<span class=""
+                    v-if="item.status_error">*</span></label>
+                <div @dragover.prevent @drop.prevent="handleDropFiles($event, key)"
+                  :class="{ 'border-red-500': (item.status_error && fieldError[key] && !formState[key].value) === true }"
+                  class="">
+                  <div class="">
+                    <svg class="mx-auto" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g id="File">
+                        <path id="icon"
+                          d="M31.6497 10.6056L32.2476 10.0741L31.6497 10.6056ZM28.6559 7.23757L28.058 7.76907L28.058 7.76907L28.6559 7.23757ZM26.5356 5.29253L26.2079 6.02233L26.2079 6.02233L26.5356 5.29253ZM33.1161 12.5827L32.3683 12.867V12.867L33.1161 12.5827ZM31.8692 33.5355L32.4349 34.1012L31.8692 33.5355ZM24.231 11.4836L25.0157 11.3276L24.231 11.4836ZM26.85 14.1026L26.694 14.8872L26.85 14.1026ZM11.667 20.8667C11.2252 20.8667 10.867 21.2248 10.867 21.6667C10.867 22.1085 11.2252 22.4667 11.667 22.4667V20.8667ZM25.0003 22.4667C25.4422 22.4667 25.8003 22.1085 25.8003 21.6667C25.8003 21.2248 25.4422 20.8667 25.0003 20.8667V22.4667ZM11.667 25.8667C11.2252 25.8667 10.867 26.2248 10.867 26.6667C10.867 27.1085 11.2252 27.4667 11.667 27.4667V25.8667ZM20.0003 27.4667C20.4422 27.4667 20.8003 27.1085 20.8003 26.6667C20.8003 26.2248 20.4422 25.8667 20.0003 25.8667V27.4667ZM23.3337 34.2H16.667V35.8H23.3337V34.2ZM7.46699 25V15H5.86699V25H7.46699ZM32.5337 15.0347V25H34.1337V15.0347H32.5337ZM16.667 5.8H23.6732V4.2H16.667V5.8ZM23.6732 5.8C25.2185 5.8 25.7493 5.81639 26.2079 6.02233L26.8633 4.56274C26.0191 4.18361 25.0759 4.2 23.6732 4.2V5.8ZM29.2539 6.70608C28.322 5.65771 27.7076 4.94187 26.8633 4.56274L26.2079 6.02233C26.6665 6.22826 27.0314 6.6141 28.058 7.76907L29.2539 6.70608ZM34.1337 15.0347C34.1337 13.8411 34.1458 13.0399 33.8638 12.2984L32.3683 12.867C32.5216 13.2702 32.5337 13.7221 32.5337 15.0347H34.1337ZM31.0518 11.1371C31.9238 12.1181 32.215 12.4639 32.3683 12.867L33.8638 12.2984C33.5819 11.5569 33.0406 10.9662 32.2476 10.0741L31.0518 11.1371ZM16.667 34.2C14.2874 34.2 12.5831 34.1983 11.2872 34.0241C10.0144 33.8529 9.25596 33.5287 8.69714 32.9698L7.56577 34.1012C8.47142 35.0069 9.62375 35.4148 11.074 35.6098C12.5013 35.8017 14.3326 35.8 16.667 35.8V34.2ZM5.86699 25C5.86699 27.3344 5.86529 29.1657 6.05718 30.593C6.25217 32.0432 6.66012 33.1956 7.56577 34.1012L8.69714 32.9698C8.13833 32.411 7.81405 31.6526 7.64292 30.3798C7.46869 29.0839 7.46699 27.3796 7.46699 25H5.86699ZM23.3337 35.8C25.6681 35.8 27.4993 35.8017 28.9266 35.6098C30.3769 35.4148 31.5292 35.0069 32.4349 34.1012L31.3035 32.9698C30.7447 33.5287 29.9863 33.8529 28.7134 34.0241C27.4175 34.1983 25.7133 34.2 23.3337 34.2V35.8ZM32.5337 25C32.5337 27.3796 32.532 29.0839 32.3577 30.3798C32.1866 31.6526 31.8623 32.411 31.3035 32.9698L32.4349 34.1012C33.3405 33.1956 33.7485 32.0432 33.9435 30.593C34.1354 29.1657 34.1337 27.3344 34.1337 25H32.5337ZM7.46699 15C7.46699 12.6204 7.46869 10.9161 7.64292 9.62024C7.81405 8.34738 8.13833 7.58897 8.69714 7.03015L7.56577 5.89878C6.66012 6.80443 6.25217 7.95676 6.05718 9.40704C5.86529 10.8343 5.86699 12.6656 5.86699 15H7.46699ZM16.667 4.2C14.3326 4.2 12.5013 4.1983 11.074 4.39019C9.62375 4.58518 8.47142 4.99313 7.56577 5.89878L8.69714 7.03015C9.25596 6.47133 10.0144 6.14706 11.2872 5.97592C12.5831 5.8017 14.2874 5.8 16.667 5.8V4.2ZM23.367 5V10H24.967V5H23.367ZM28.3337 14.9667H33.3337V13.3667H28.3337V14.9667ZM23.367 10C23.367 10.7361 23.3631 11.221 23.4464 11.6397L25.0157 11.3276C24.9709 11.1023 24.967 10.8128 24.967 10H23.367ZM28.3337 13.3667C27.5209 13.3667 27.2313 13.3628 27.0061 13.318L26.694 14.8872C27.1127 14.9705 27.5976 14.9667 28.3337 14.9667V13.3667ZM23.4464 11.6397C23.7726 13.2794 25.0543 14.5611 26.694 14.8872L27.0061 13.318C26.0011 13.1181 25.2156 12.3325 25.0157 11.3276L23.4464 11.6397ZM11.667 22.4667H25.0003V20.8667H11.667V22.4667ZM11.667 27.4667H20.0003V25.8667H11.667V27.4667ZM32.2476 10.0741L29.2539 6.70608L28.058 7.76907L31.0518 11.1371L32.2476 10.0741Z"
+                          :fill="block.button.background" />
+                      </g>
+                    </svg>
+                    <span class="">{{ item.placehoder }}</span>
+                  </div>
+                  <div class="">
+                    <span class="">Drag and Drop your file
+                      here or
+                    </span>
+                    <div class="">
+                      <label>
+                        <input id="fileInput" accept="image/*,.pdf" :type="item.fields" multiple
+                          @change="handleOnchaneTypeFile($event, key)" hidden />
+                        <div :style="{
+                          borderRadius: block.button.border ? `${block.button.border}px` : '0px',
+                          color: block.button.color,
+                          backgroundColor: block.button.variant === 'solid' ? block.button.background : 'transparent',
+                          border: `2px solid ${block.button.background}`
+                        }"
+                          class="">
+                          Choose File
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+          </div>
+        </div>
+
+        <div
+          class=""
+          :class="{
+            'justify-content-center': block.button.align_button === 'center',
+            'justif-content-start': block.button.align_button === 'left',
+            'justify-content-end': block.button.align_button === 'right',
+          }"
+        >
+          <UButton
+            :loading="isLoadingButton"
+            @click="onSubmit"
+            type="submit"
+            style="line-height: 30px;"
+            class="custom_button_contact fw-medium fs-6"
+            :style="{
+            borderRadius: block.button.border ? `${block.button.border}px` : '0px',
+            color: block.button.color,
+            backgroundColor: block.button.variant === 'solid' ? block.button.background : 'transparent',
+            borderColor: block.button.background
+            }"
+            :class="{
+              'w-auto': block.button.width_button === 'auto',
+              'w-100': block.button.width_button === 'full',
+              'w-50': block.button.width_button === '1/2',
+              'w-33': block.button.width_button === '1/3',
+              'w-25': block.button.width_button === '1/4',
+            }"
+          >
+            {{ block.button.text_button }}
+            <img style="max-height: 16px" :src="block.button.image" />
+          </UButton>
+        </div>
+      </div>
+      <!-- <div class="col-12 col-md-6 col-lg-6 width-mb" style="padding-left:12px">
            <div class="row pb-18 " >
                 <div class="col-12 col-md-6 col-lg-6 pl-16" >
                   <label class="pd-9" for="form-field-name " >Name</label>
@@ -49,69 +293,485 @@
                 </div>
            </div>
            <NuxtLink class="btn-book" >
-                {{ block.button.text }}
+                {{ block.button.text_button }}
                 <img  :src="block.button.image" />
               </NuxtLink>
-      </div>
-            
-          </div>
+      </div> -->
+    </div>
+  </section>
+</template>
+<script lang="ts" setup>
+import dataJson from "../../plugin/data.json";
 
+interface Props {
+  dataBinding: any;
+  block: any;
+}
+console.log(dataJson);
 
-    </section>
-  </template>
-  
-  <script lang="ts" setup>
-  interface Props {
-    dataBinding: any;
-    block: any;
+const tenant_id = ref();
+if (dataJson?.length > 0) {
+  tenant_id.value = dataJson.find((item: any) => {
+    console.log(item);
+    return item.plugin_identity === "com.newzen.contact-plugin";
+  })?.data.tenant_id;
+}
+
+console.log(tenant_id);
+const BASE_URL = "https://contact-form-api.nz-service01.dtsmart.dev";
+const props = defineProps<Props>();
+const showNotification = ref(false);
+const popupTitle = ref("");
+const popupMessage = ref("");
+const colorPopup = ref("");
+const form_token = btoa(props.block.title);
+const fieldError = reactive<any>({});
+const formState = reactive<any>({});
+const isLoadingButton = ref(false);
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const telRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+const errorEmail = ref(false);
+const errorPhone = ref(false);
+const statusUploadFile = reactive<any>({});
+const listFilesUpload = reactive<any>({});
+const listFilesComplete = reactive<any>({});
+const percentCompleteUploadFile = reactive<any>({});
+const convertFormstate = () => {
+  props.block.form.forEach((item: any, indexForm: number) => {
+    formState[indexForm] = {
+      value: null ? "" : "",
+      type: item.fields,
+      status_error: item.status_error,
+      error: item.error,
+    };
+  });
+};
+
+function calculateMBtoBytes(mb: number) {
+  const bytesPerMB = 1024 * 1024; // 1 MB = 1024 * 1024 bytes
+  return mb * bytesPerMB;
+}
+
+const maxBytes = calculateMBtoBytes(15);
+
+function ShowPopup(
+  title: "Success" | "Error" | "Warning",
+  message: string,
+  color: "success" | "error" | "warning",
+  active: boolean
+) {
+  popupTitle.value = title;
+  popupMessage.value = message;
+  if (color === "success") {
+    colorPopup.value = "#4BB543"; // Màu xanh lá cho success
+  } else if (color === "error") {
+    colorPopup.value = "#FF0000"; // Màu đỏ cho error
+  } else if (color === "warning") {
+    colorPopup.value = "#FFC107"; // Màu vàng cho warning
   }
-  
-  const props = defineProps<Props>();
-  console.log(props.block)
-  </script>
-  
-  <style lang="scss" scoped>
-input,textarea{
-  border-radius:none;
+  showNotification.value = active;
+}
+
+const handleOnchaneTypeFile = (event: any, key: any) => {
+  const inputFile = event.target.files;
+  const files = Array.from(inputFile);
+  const sizeFiles = files.map((item) => item.size);
+  const totalSizeFiles = sizeFiles.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  statusUploadFile[key] = {
+    value: true,
+  };
+  percentCompleteUploadFile[key] = {
+    value: 0,
+  };
+  if (totalSizeFiles > maxBytes) {
+    ShowPopup(
+      "Error",
+      "PNG, JPG or PDF, smaller than 15MB dasds",
+      "error",
+      true
+    );
+    return;
+  }
+  const file = {};
+  if (inputFile) {
+    for (const key in inputFile) {
+      if (inputFile[key] instanceof File) {
+        file[key] = inputFile[key];
+      }
+    }
+    UpdateListFiles(files, key);
+  }
+};
+
+const handleDropFiles = (event: DragEvent, key: any) => {
+  const files = event.dataTransfer?.files;
+  const listFiles = Array.from(files);
+
+  const sizeFiles = listFiles.map((item) => item.size);
+  const totalSizeFiles = sizeFiles.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  if (totalSizeFiles > maxBytes) {
+    ShowPopup(
+      "Error",
+      "PNG, JPG or PDF, smaller than 15MB dasds",
+      "error",
+      true
+    );
+    return;
+  }
+  statusUploadFile[key] = {
+    value: true,
+  };
+  percentCompleteUploadFile[key] = {
+    value: 0,
+  };
+  if (files) {
+    UpdateListFiles(listFiles, key);
+  }
+};
+
+function GetListUrlFormResponseFile(listFile: any) {
+  const listUrl = listFile.map((item: any) => item.url);
+  return listUrl;
+}
+
+function UpdateFilesComplete(listFile: any, key: number) {
+  listFilesComplete[key] = {
+    value: listFilesComplete[key]?.value
+      ? [...listFilesComplete[key]?.value, listFile].flat()
+      : listFile,
+  };
+}
+
+function UpdateFormstateForFile(listUrl: any, key: number) {
+  const values = [listUrl, ...formState[key].value].flat();
+
+  const fileValue = {
+    ...formState[key],
+    value: listUrl.length > 0 ? values : "",
+  };
+
+  formState[key] = fileValue;
+}
+
+// function UpdateFormstateForFile(value: [], key: number) {
+//   const listUrl = value.map((item) => item.url)
+
+//   const values = [listUrl, ...formState[key].value].flat()
+
+//   const fileValue = { ...formState[key], value: value.length > 0 ? values : '' }
+
+//   listFilesComplete.value = [...listFilesComplete.value, value].flat()
+
+//   formState[key] = fileValue;
+// }
+
+function UpdateListFiles(value: any[], key: any) {
+  listFilesUpload[key] = {
+    value: value.length > 0 ? value : [],
+  };
+  const formTest = {
+    form_name: props.block.title,
+    tenant_id: tenant_id.value,
+    form_token: form_token,
+  };
+
+  const formData = new FormData();
+  Object.entries(formTest).forEach(([key, value]) =>
+    formData.append(`${key}`, value)
+  );
+
+  value.map((file, index) => {
+    formData.append("file[]", file);
+  });
+
+  UploadFile(formData, key);
+}
+
+function ResetFileInput() {
+  const inputFile = document.getElementById("fileInput");
+  inputFile.value = "";
+}
+
+async function RemoveFile(index: number, key: any, url: string) {
+  try {
+    const body = {
+      form_name: props.block.title,
+      tenant_id: tenant_id.value,
+      url: url,
+      form_token: form_token,
+    };
+
+    ResetFileInput();
+
+    formState[key].value.splice(index, 1);
+
+    listFilesComplete[key]?.value.splice(index, 1);
+
+    ShowPopup(
+      "Success",
+      "File has been successfully deleted!",
+      "success",
+      true
+    );
+
+    await $fetch(`${BASE_URL}/api/v1/end-user/storage/delete`, {
+      method: "POST",
+      body: {
+        ...body,
+      },
+    });
+  } catch (error) {
+    console.log("Error :", error);
+  }
+}
+
+watch(
+  () => props.block.form,
+  () => {
+    convertFormstate();
+  },
+  { deep: true, immediate: true }
+);
+
+const onPhoneNumberInput = (event: any) => {
+  for (const key in formState) {
+    if (formState.hasOwnProperty(key)) {
+      const item = formState[key];
+      if (item.type === "tel") {
+        let input = event.target.value.replace(/\D/g, "");
+        // if (input.length > 0 && (input[0] === '0' || input[0] === '1')) {
+        //   input = input.slice(1);
+        // }
+        const filteredInput = input
+          .split("")
+          .filter((char) => char >= "0" && char <= "9")
+          .join("");
+        let formattedInput;
+        if (filteredInput.length > 6) {
+          formattedInput = filteredInput.replace(
+            /(\d{3})(\d{3})(\d{1,4})/,
+            "$1-$2-$3"
+          );
+        } else if (filteredInput.length > 3) {
+          formattedInput = filteredInput.replace(/(\d{3})(\d{1,3})/, "$1-$2");
+        } else {
+          formattedInput = filteredInput;
+        }
+        event.target.value = formattedInput;
+        formState[key].value = formattedInput;
+      }
+    }
+  }
+};
+
+const validateForm = () => {
+  errorEmail.value = false;
+  errorPhone.value = false;
+  for (const key in formState) {
+    if (formState.hasOwnProperty(key)) {
+      const item = formState[key];
+      if (item.status_error) {
+        if (typeof item.value !== "object" && !item.value.trim()) {
+          fieldError[key] = true;
+        } else {
+          if (item.type === "tel" && !telRegex.test(item.value.trim())) {
+            fieldError[key] = true;
+            errorPhone.value = true;
+          } else if (
+            item.type === "email" &&
+            !emailRegex.test(item.value.trim())
+          ) {
+            fieldError[key] = true;
+            errorEmail.value = true;
+          } else {
+            fieldError[key] = false;
+          }
+        }
+      }
+    }
+  }
+  return !Object.values(fieldError).some((error) => error);
+};
+
+const clearFormData = () => {
+  for (const key in formState) {
+    if (formState.hasOwnProperty(key)) {
+      formState[key].value = "";
+      for (const keyListFiles in listFilesComplete) {
+        delete listFilesComplete[keyListFiles];
+      }
+      errorEmail.value = false;
+      errorPhone.value = false;
+    }
+  }
+};
+
+function UploadFile(formData: any, key: any) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        percentCompleteUploadFile[key] = {
+          value: Math.round((event.loaded / event.total) * 100),
+        };
+      }
+    };
+    xhr.onload = function () {
+      const response = xhr.response;
+      if (xhr.status === 200) {
+        statusUploadFile[key] = {
+          value: response.status,
+        };
+        const listUrl = GetListUrlFormResponseFile(xhr.response.data.result);
+        UpdateFilesComplete(xhr.response.data.result, key);
+        UpdateFormstateForFile(listUrl, key);
+        delete listFilesUpload[key];
+        resolve();
+      } else {
+        statusUploadFile[key] = {
+          value: response.status,
+        };
+        // UpdateFormstateForFile([], key)
+        ShowPopup(
+          "Error",
+          "Only files with these MIME types are allowed: image`/*`, application/pdf.",
+          "error",
+          true
+        );
+        reject(new Error("Upload failed"));
+      }
+    };
+
+    xhr.onerror = function () {
+      statusUploadFile[key] = {
+        value: false,
+      };
+      // UpdateFormstateForFile([], key)
+      ShowPopup(
+        "Error",
+        "An error occurred during file upload. Please check the file format or size and try again. If the issue persists, contact support for assistance.",
+        "error",
+        true
+      );
+    };
+
+    xhr.open("POST", `${BASE_URL}/api/v1/end-user/storage/upload`); // Thay URL với endpoint của bạn
+
+    xhr.send(formData);
+
+    console.log("xhr :", xhr);
+  });
+}
+
+const onSubmit = async () => {
+  try {
+    isLoadingButton.value = true;
+    if (!validateForm()) {
+      ShowPopup("Error", "Field entered is incorrect!", "error", true);
+      return;
+    }
+    const data_submission: any = [];
+    for (const key in formState) {
+      if (formState.hasOwnProperty(key)) {
+        const item = formState[key];
+        if (!Array.isArray(item.value)) {
+          if (item.value.trim() || item.value.trim() === "") {
+            data_submission.push({
+              name: props.block.form[Number(key)].label,
+              type: item.type,
+              value: item.value ? item.value : "",
+            });
+          }
+        } else {
+          data_submission.push({
+            name: props.block.form[Number(key)].label,
+            type: item.type,
+            value: item.value ? item.value : "",
+          });
+        }
+      }
+    }
+    const body = {
+      form_name: props.block.title,
+      tenant_id: tenant_id.value,
+      form_token: form_token,
+      data_submission: data_submission,
+    };
+    console.log(body);
+    
+    // await $fetch(
+    //   "https://contact-form-api.nz-service01.dtsmart.dev/api/v1/form-submission",
+    //   {
+    //     method: "POST",
+    //     body: {
+    //       ...body,
+    //     },
+    //   }
+    // );
+    // clear data
+    isLoadingButton.value = true;
+    clearFormData();
+    ShowPopup("Success", "Submit Form Successfully!", "success", true);
+  } catch (error: any) {
+    console.log(error);
+    ShowPopup("Error", "Submit Form Error!", "error", true);
+  } finally {
+    isLoadingButton.value = false;
+  }
+};
+const closePopup = () => {
+  showNotification.value = false;
+};
+</script>
+
+<style lang="scss" scoped>
+input,
+textarea {
+  border-radius: none;
   border-radius: 0 !important;
   min-height: 47px;
 }
-img{
+img {
   width: 26px;
   height: 21px;
   object-fit: contain;
 }
-.required-asterisk::after{
-   content: "*";
-    color: red;
-    padding-inline-start: .2em;
+.required-asterisk::after {
+  content: "*";
+  color: red;
+  padding-inline-start: 0.2em;
 }
-.pd-9{
-   padding-bottom:  9px; 
+.pd-9 {
+  padding-bottom: 9px;
 }
-.pb-18{
+.pb-18 {
   padding-bottom: 18px;
 }
-.pd-10{
+.pd-10 {
   padding-right: 10px;
   padding-left: 10px;
 }
-.pl-16{
-  padding: 2px 12px
+.pl-16 {
+  padding: 2px 12px;
 }
-.btn-book{
+.btn-book {
   padding: 15px 30px;
   display: inline-flex;
   gap: 8px;
   line-height: 16px;
 }
-.mb-20{
+.mb-20 {
   margin-bottom: 20px !important;
 }
-.pr-18{
- padding-right: 18px;
- margin-top: calc(15px / 2);
- padding-bottom: calc(15px / 2);
+.pr-18 {
+  padding-right: 18px;
+  margin-top: calc(15px / 2);
+  padding-bottom: calc(15px / 2);
 }
 .text-item {
   display: flex;
@@ -125,28 +785,155 @@ img{
   text-decoration: none;
 }
 .form-control:focus {
-  border-color:#F8F8F8;
+  border-color: #f8f8f8;
   outline: none;
   box-shadow: 0 0 0 2px #fcc5c0;
-} 
+}
 
 @media (max-width: 1024px) {
- .margin-mb{
-  margin-top: 3em !important;
-  margin-bottom: 3em !important; }
+  .margin-mb {
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
+  }
 }
 // .width-mb{
 //   max-width: 470px;
 // }
 @media (max-width: 768px) {
- .margin-mb{
-  margin-top: 3em !important;
-  margin-bottom: 3em !important; }
+  .margin-mb {
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
+  }
 }
 @media (max-width: 576px) {
- .margin-mb{
-  margin-top: 3em !important;
-  margin-bottom: 3em !important; 
+  .margin-mb {
+    margin-top: 3em !important;
+    margin-bottom: 3em !important;
+  }
 }
+
+.file-drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
 }
-  </style>
+
+.file-drop-area:hover {
+  background-color: #f9f9f9;
+}
+
+.popup-notification {
+  display: none;
+  z-index: 999999;
+  visibility: visible;
+  text-align: center;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  box-shadow: 1px 2px 3px #ccc;
+  border-radius: 3px;
+  background-color: #ffffff;
+  transition: all 300ms linear 0ms;
+}
+
+.popup-notification.active {
+  display: block;
+  width: 300px;
+  text-align: left;
+}
+
+.popup-content {
+  h2 {
+    font-size: 18px !important;
+    text-align: left !important;
+  }
+
+  p {
+    font-size: 14px !important;
+    text-align: left !important;
+  }
+}
+
+::v-deep .i-heroicons-arrow-path-20-solid {
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.custom_title_plugin {
+  font-weight: bold;
+  color: #000;
+  font-size: 32px !important;
+  margin-bottom: 10px;
+  padding-top: 40px;
+}
+
+.custom_subtitle {
+  font-weight: 500;
+  color: #000;
+  font-size: 18px !important;
+  margin-bottom: 20px;
+}
+
+.custom_button_contact {
+  padding: 8px 26px;
+  margin-bottom: 0;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+
+  &:hover {
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.custom_label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+label{
+  font-size:16px !important;
+  color: #7A7A7A ;
+}
+
+.border_error {
+  border-color: red !important;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+.cus-input{
+  padding-left: 15px;
+  outline: none;
+  border: 2px solid #F8F8F8 ;
+  &:focus{
+    border: 2px solid #FCC5C0 ;
+  }
+}
+.w-33{
+  width: 33,33%;
+}
+</style>
