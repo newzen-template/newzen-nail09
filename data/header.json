@@ -1,5 +1,5 @@
 {
-  "en":{ 
+  "en": {
     "logo": "/images/hero-title.png",
     "logo_alt": "Logo alt",
     "items": [
@@ -22,8 +22,7 @@
             "link": "/browser-service",
             "text": "browser-service",
             "open_new_tab": false
-          }
-          ,
+          },
           {
             "link": "/hair-removal",
             "text": "hair-removal",
@@ -45,36 +44,35 @@
         "link": "/contact",
         "text": "Contact US",
         "open_new_tab": false
-      } 
+      }
     ],
-    "button":{
+    "button": {
       "text": "Book Now",
       "is_show": true,
-      "link":"/#",
+      "link": "/#",
       "open_new_tab": true
     },
     "_inputs": {
-      
-    "button.is_show": {
-    "type": "toggle",
-    "label": "Show Button"
-    },
-    "button.text": {
-      "type": "text",
-      "label": "Button Text"
-    },
-    "button.background_color": {
-      "type": "color",
-      "label": "Button Background Color"
-    },
-    "button.link": {
-      "type": "text",
-      "label": "Button Link"
-    },
-    "button.color": {
-      "type": "color",
-      "label": "Button Text Color"
-    },
+      "button.is_show": {
+        "type": "toggle",
+        "label": "Show Button"
+      },
+      "button.text": {
+        "type": "text",
+        "label": "Button Text"
+      },
+      "button.background_color": {
+        "type": "color",
+        "label": "Button Background Color"
+      },
+      "button.link": {
+        "type": "text",
+        "label": "Button Link"
+      },
+      "button.color": {
+        "type": "color",
+        "label": "Button Text Color"
+      },
       "logo": {
         "type": "image",
         "label": "Image logo"
@@ -83,12 +81,10 @@
         "type": "text",
         "label": "Image alt"
       },
-      
       "background_color": {
         "type": "color",
         "label": "Background  color"
       }
-    
     }
   }
 }

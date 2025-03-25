@@ -54,23 +54,23 @@
             v-for="(item, key) in block.form"
             :key="key"
             :class="{
-              'col-6': item.width_fields === '1/2',
+              'col-lg-6 col-12': item.width_fields === '1/2',
               'col-12': item.width_fields === 'full',
             }"
           >
-            <div style="margin-bottom: 18px" v-if="item.fields === 'text'">
+            <div class="mb-3" v-if="item.fields === 'text'">
               <div>
                 <label
                   v-if="item.label"
                   :style="`color: ${block.color_text}`"
                   class="custom_label"
-                  >{{ item.label
-                  }}<span
-                    style="color: red; padding-left: 5px"
-                    v-if="item.status_error && key !== 0"
-                    >*</span
-                  ></label
                 >
+                  {{ item.label}}
+                  <span
+                    v-if="item.status_error"
+                    style="color: red; padding-left: 5px"
+                  >*</span>
+                </label>
               </div>
               <div>
                 <input
@@ -81,13 +81,9 @@
                     borderRadius: block.border ? `${block.border}px` : '0px',
                     color: block.color_text,
                   }"
-                  :class="{
-                    'border-red-500':
-                      (item.status_error &&
-                        fieldError[key] &&
-                        !formState[key].value) === true,
-                  }"
+                  :class="{ 'border-red-500': (item.status_error && fieldError[key] && !formState[key].value) }"
                   style="box-shadow: 0 0 0 transparent; width: 100%"
+                  :placeholder="item.placehoder ? item.placehoder : ''"
                 />
               </div>
               <div
@@ -99,19 +95,19 @@
               </div>
             </div>
 
-            <div tyle="margin-bottom:18px" v-if="item.fields === 'email'">
+            <div class="mb-3" v-if="item.fields === 'email'">
               <div>
                 <label
                   v-if="item.label"
                   :style="`color: ${block.color_text}`"
                   class="custom_label"
-                  >{{ item.label
-                  }}<span
-                    style="color: red; padding-left: 5px"
-                    v-if="item.status_error"
-                    >*</span
-                  ></label
                 >
+                  {{ item.label}}
+                  <span
+                    v-if="item.status_error"
+                    style="color: red; padding-left: 5px"
+                  >*</span>
+                </label>
               </div>
               <input
                 :type="item.field"
@@ -128,6 +124,7 @@
                       errorPhone === true),
                 }"
                 style="box-shadow: 0 0 0 transparent; width: 100%"
+                :placeholder="item.placehoder ? item.placehoder : ''"
               />
               <div v-if="item.status_error">
                 <div v-if="fieldError[key] && !formState[key].value">
@@ -139,14 +136,19 @@
               </div>
             </div>
 
-            <div tyle="margin-bottom:18px" v-if="item.fields === 'tel'">
+            <div class="mb-3" v-if="item.fields === 'tel'">
               <div>
                 <label
                   v-if="item.label"
                   :style="`color: ${block.color_text}`"
                   class="custom_label"
-                  >{{ item.label }}</label
                 >
+                  {{ item.label}}
+                  <span
+                    v-if="item.status_error"
+                    style="color: red; padding-left: 5px"
+                  >*</span>
+                </label>
               </div>
               <input
                 :type="item.field"
@@ -165,6 +167,7 @@
                   color: block.color_text,
                 }"
                 style="box-shadow: 0 0 0 transparent; width: 100%"
+                :placeholder="item.placehoder ? item.placehoder : ''"
               />
               <div v-if="item.status_error">
                 <div v-if="fieldError[key] && !formState[key].value">
@@ -178,57 +181,49 @@
               </div>
             </div>
 
-            <div tyle="margin-bottom:18px" v-if="item.fields === 'textarea'">
+            <div class="mb-3" v-if="item.fields === 'textarea'">
               <label
                 v-if="item.label"
                 :style="`color: ${block.color_text}`"
                 class="custom_label"
-                >{{ item.label }}
-                <span
-                  style="color: red; padding-left: 3px"
-                  v-if="item.status_error"
-                  >*</span
-                ></label
               >
+                {{ item.label}}
+                <span
+                  v-if="item.status_error"
+                  style="color: red; padding-left: 5px"
+                >*</span>
+              </label>
               <br />
               <textarea
                 rows="9"
                 class="cus-input"
                 :style="{
+                  paddingTop: '15px',
                   borderRadius: block.border ? `${block.border}px` : '0px',
                   color: block.color_text,
                 }"
-                :class="{
-                  'border-red-500':
-                    item.status_error === true &&
-                    ((fieldError[key] === true && !formState[key].value) ||
-                      errorPhone === true),
-                }"
+                v-model="formState[key].value"
+                :placeholder="item.placehoder ? item.placehoder : ''"
+                :class="{'border-red-500': (item.status_error && fieldError[key] && !formState[key].value) }"
                 style="box-shadow: 0 0 0 transparent; width: 100%"
               ></textarea>
-              <div
-                v-if="
-                  item.status_error && fieldError[key] && !formState[key].value
-                "
-              >
+              <div v-if="item.status_error && fieldError[key] && !formState[key].value">
                 <span style="color: red" class="">{{ item.error }}</span>
               </div>
             </div>
+
             <div
-              class="d-flex flex-column align-items-start w-100 mt-3"
               v-else-if="item.fields === 'file'"
+              class="d-flex flex-column align-items-start w-100 mb-3"
             >
               <label
                 v-if="item.label"
                 :style="`color: ${block.color_text}`"
                 class="custom_label"
-                >{{ item.label
-                }}<span
-                  class="text-red-500 ml-[3px] font-light text-[14px]"
-                  v-if="item.status_error"
-                  >*</span
-                ></label
               >
+                {{ item.label }}
+                <span class="text-red-500 ml-[3px] font-light text-[14px]" v-if="item.status_error">*</span>
+              </label>
               <div
                 @dragover.prevent
                 @drop.prevent="handleDropFiles($event, key)"
@@ -305,14 +300,8 @@
                   </div>
                 </div>
               </div>
-              <div
-                v-if="
-                  item.status_error && fieldError[key] && !formState[key].value
-                "
-              >
-                <span class="text-red-500 text-[14px] font-medium">{{
-                  item.error
-                }}</span>
+              <div v-if="item.status_error && fieldError[key] && !formState[key].value">
+                <span style="color: red" class="">{{ item.error }}</span>
               </div>
               <!-- list file complete-->
 
@@ -637,59 +626,39 @@
           </button>
         </div>
       </div>
-      <!-- <div class="col-12 col-md-6 col-lg-6 width-mb" style="padding-left:12px">
-           <div class="row pb-18 " >
-                <div class="col-12 col-md-6 col-lg-6 pl-16" >
-                  <label class="pd-9" for="form-field-name " >Name</label>
-                  <input type="text" class="form-control" id="form-field-name" >
-                </div> 
-                <div class="col-12 col-md-6 col-lg-6 pl-16">
-                  <label class="pd-9  required-asterisk" for="form-field-email required ">Email</label>
-                  <input type="text" class="form-control" id="form-field-email">
-                </div>
-           </div>
-           <div class="row pb-18">
-                <div class="col-12 col-md-6 col-lg-6 pl-16">
-                        <label class="pd-9" for="form-field-phone ">Phone</label>
-                        <input type="tel" pattern="[0-9()#&+*-=.]+" class="form-control" id="form-field-phone" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
-                </div>
-                <div class="col-12 col-md-6 col-lg-6 pl-16">
-                        <label class="pd-9 required-asterisk" for="form-field-subject required ">Subject</label>
-                        <input type="text" class="form-control" id="form-field-subject">
-                </div>
-           </div>
-           <div class="row pb-18">
-                <div class="col-12" style="padding-bottom:18px">
-                        <label class="pd-9 required-asterisk" for="form-field-message required ">Message</label>
-                        <textarea style="min-height:200px" type="text" class="form-control" id="form-field-message" ></textarea>
-                </div>
-           </div>
-           <NuxtLink class="btn-book" >
-                {{ block.button.text_button }}
-                <img  :src="block.button.image" />
-              </NuxtLink>
-      </div> -->
+    </div>
+    <!-- Notification popup -->
+    <div
+      class="popup-notification"
+      v-if="showNotification"
+      :class="{ active: showNotification === true }"
+    >
+      <div class="popup-content position-relative p-4">
+        <div
+          class="position-absolute top-0 end-0 m-2 cursor-pointer"
+          @click="closePopup()"
+        >
+          <i class="bi bi-x"></i>
+        </div>
+        <h2 :style="{ color: colorPopup }">{{ popupTitle }}</h2>
+        <p>{{ popupMessage }}</p>
+      </div>
     </div>
   </section>
 </template>
 <script lang="ts" setup>
-import dataJson from "../../plugin/data.json";
-
+import dataJson from "@/plugin/data.json";
 interface Props {
   dataBinding: any;
   block: any;
 }
-console.log(dataJson);
-
 const tenant_id = ref();
 if (dataJson?.length > 0) {
   tenant_id.value = dataJson.find((item: any) => {
-    console.log(item);
     return item.plugin_identity === "com.newzen.contact-plugin";
   })?.data.tenant_id;
 }
 
-console.log(tenant_id);
 const BASE_URL = "https://contact-form-api.nz-service01.dtsmart.dev";
 const props = defineProps<Props>();
 const showNotification = ref(false);
@@ -711,7 +680,7 @@ const percentCompleteUploadFile = reactive<any>({});
 const convertFormstate = () => {
   props.block.form.forEach((item: any, indexForm: number) => {
     formState[indexForm] = {
-      value: null ? "" : "",
+      value: "",
       type: item.fields,
       status_error: item.status_error,
       error: item.error,
@@ -747,9 +716,9 @@ function ShowPopup(
 const handleOnchaneTypeFile = (event: any, key: any) => {
   const inputFile = event.target.files;
   const files = Array.from(inputFile);
-  const sizeFiles = files.map((item) => item.size);
+  const sizeFiles = files.map((item: any) => item.size);
   const totalSizeFiles = sizeFiles.reduce(
-    (accumulator, currentValue) => accumulator + currentValue
+    (accumulator: number, currentValue: number) => accumulator + currentValue
   );
   statusUploadFile[key] = {
     value: true,
@@ -766,7 +735,7 @@ const handleOnchaneTypeFile = (event: any, key: any) => {
     );
     return;
   }
-  const file = {};
+  const file:any = {};
   if (inputFile) {
     for (const key in inputFile) {
       if (inputFile[key] instanceof File) {
@@ -779,7 +748,7 @@ const handleOnchaneTypeFile = (event: any, key: any) => {
 
 const handleDropFiles = (event: DragEvent, key: any) => {
   const files = event.dataTransfer?.files;
-  const listFiles = Array.from(files);
+  const listFiles = Array.from(files || []);
 
   const sizeFiles = listFiles.map((item) => item.size);
   const totalSizeFiles = sizeFiles.reduce(
@@ -818,7 +787,7 @@ function UpdateFilesComplete(listFile: any, key: number) {
   };
 }
 
-function UpdateFormstateForFile(listUrl: any, key: number) {
+function UpdateFormStateForFile(listUrl: any, key: number) {
   const values = [listUrl, ...formState[key].value].flat();
 
   const fileValue = {
@@ -828,18 +797,6 @@ function UpdateFormstateForFile(listUrl: any, key: number) {
 
   formState[key] = fileValue;
 }
-
-// function UpdateFormstateForFile(value: [], key: number) {
-//   const listUrl = value.map((item) => item.url)
-
-//   const values = [listUrl, ...formState[key].value].flat()
-
-//   const fileValue = { ...formState[key], value: value.length > 0 ? values : '' }
-
-//   listFilesComplete.value = [...listFilesComplete.value, value].flat()
-
-//   formState[key] = fileValue;
-// }
 
 function UpdateListFiles(value: any[], key: any) {
   listFilesUpload[key] = {
@@ -864,7 +821,7 @@ function UpdateListFiles(value: any[], key: any) {
 }
 
 function ResetFileInput() {
-  const inputFile = document.getElementById("fileInput");
+  const inputFile:any = document.getElementById("fileInput");
   inputFile.value = "";
 }
 
@@ -915,12 +872,9 @@ const onPhoneNumberInput = (event: any) => {
       const item = formState[key];
       if (item.type === "tel") {
         let input = event.target.value.replace(/\D/g, "");
-        // if (input.length > 0 && (input[0] === '0' || input[0] === '1')) {
-        //   input = input.slice(1);
-        // }
         const filteredInput = input
           .split("")
-          .filter((char) => char >= "0" && char <= "9")
+          .filter((char: string) => char >= "0" && char <= "9")
           .join("");
         let formattedInput;
         if (filteredInput.length > 6) {
@@ -1001,14 +955,13 @@ function UploadFile(formData: any, key: any) {
         };
         const listUrl = GetListUrlFormResponseFile(xhr.response.data.result);
         UpdateFilesComplete(xhr.response.data.result, key);
-        UpdateFormstateForFile(listUrl, key);
+        UpdateFormStateForFile(listUrl, key);
         delete listFilesUpload[key];
-        resolve();
+        resolve(void 0);
       } else {
         statusUploadFile[key] = {
           value: response.status,
         };
-        // UpdateFormstateForFile([], key)
         ShowPopup(
           "Error",
           "Only files with these MIME types are allowed: image`/*`, application/pdf.",
@@ -1023,7 +976,6 @@ function UploadFile(formData: any, key: any) {
       statusUploadFile[key] = {
         value: false,
       };
-      // UpdateFormstateForFile([], key)
       ShowPopup(
         "Error",
         "An error occurred during file upload. Please check the file format or size and try again. If the issue persists, contact support for assistance.",
@@ -1253,7 +1205,6 @@ img {
 .custom_button_contact {
   padding: 8px 26px;
   margin-bottom: 0;
-  margin-top: 15px;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.6;
@@ -1306,6 +1257,9 @@ h6 {
   border: 2px solid #f8f8f8;
   &:focus {
     border: 2px solid #fcc5c0;
+  }
+  &::placeholder {
+    opacity: 0.3;
   }
 }
 .w-33 {

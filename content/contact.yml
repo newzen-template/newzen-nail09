@@ -47,49 +47,40 @@ content_blocks:
     color_text: "#666666"
     form:
       - fields: text
-        status_error: true
+        status_error: false
         error: Please this is a required field.
         label: Name
-        placehoder: Please enter first name
+        placehoder:
         width_fields: 1/2
 
-     
-        
       - fields: email
         status_error: true
         error: Please this is a required field.
         label: Email
-        placehoder: Please enter email
+        placehoder:
         width_fields: 1/2
 
       
       - fields: tel
-        status_error: true
+        status_error: false
         error: Please this is a required field.
         label: Phone 
-        placehoder: Please enter phone number
+        placehoder:
         width_fields: 1/2
 
       - fields: text
         status_error: true
         error: Please this is a required field.
         label: Subject
-        placehoder: Please enter last name
+        placehoder:
         width_fields: 1/2  
 
       - fields: textarea
         status_error: true
         error: Please this is a required field.
         label: Message
-        placehoder: Please enter message
+        placehoder:
         width_fields: full  
-        
-      - fields: file
-        status_error: true
-        error: Please this is a required field.
-        label: Attachments 2 (for Resume, References, etc)
-        placehoder: PNG, JPG or PDF, smaller than 15MB
-        width_fields: full
         
     button:
         background: "#FCC5C0"

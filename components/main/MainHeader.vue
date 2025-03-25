@@ -11,8 +11,7 @@
             <img
               itemprop="logo"
               :src="headerData.logo"
-              :alt="headerData.alt_image"
-              class=" "
+              :alt="headerData.logo_alt"
               style="max-height: 70px"
             />
           </NuxtLink>
@@ -21,7 +20,7 @@
           class="col-lg-8 col-12 px-0 d-flex justify-content-lg-end justify-content-between align-items-center h-100"
         >
           <NuxtLink
-          v-if="headerData.button.is_show"
+            v-if="headerData.button.is_show"
             itemprop="url"
             :to="`${homeUrl}`"
             class="d-lg-none d-block col-6"
@@ -29,7 +28,7 @@
           >
             <img
               :src="headerData.logo"
-              :alt="headerData.alt_image"
+              :alt="headerData.logo_alt"
               class="w-100 h-100 object-fit-contain"
               style="max-width: 260px"
             />
@@ -51,7 +50,7 @@
                 margin-right:10px;
               "
             ></i> 
-            <img v-if="isOpen" class="img-close" style="width: 30px;height:30px;margin-right:10px" src="../../public/images/xmark-solid.svg" alt="">
+            <img v-if="isOpen" class="img-close" style="width: 30px;height:30px;margin-right:10px" src="/images/xmark-solid.svg" :alt="headerData.logo_alt">
           </div>
           <div v-show="checkMobile" :class="['nav-mobile', { active: isOpen }]">
       <div class="nav-mobile-left flex-1">
@@ -76,13 +75,13 @@
           >
             {{ header.text }}
             <img
-                  :class="{ active: isActiveMenuItem(header.link) }"
-                  style="padding-left: 10px"
-                  v-if="header?.item_child && header.item_child.length > 0"
-                  src="../../public/images/caret-down-solid.png"
-                  alt="Dropdown"
-                  class="nav-icon"
-                />
+              :class="{ active: isActiveMenuItem(header.link) }"
+              style="padding-left: 10px"
+              v-if="header?.item_child && header.item_child.length > 0"
+              src="/images/caret-down-solid.png"
+              :alt="headerData.logo_alt"
+              class="nav-icon"
+            />
           </NuxtLink>
 
           <!-- Submenu Mobile -->
@@ -90,7 +89,7 @@
             <ul>
               <li v-for="(child, index) in header.item_child" :key="index">
                 <NuxtLink
-                v-if="headerData.button.is_show"
+                  v-if="headerData.button.is_show"
                   itemprop="url"
                   :to="child.link"
                   :title="child.text"
@@ -131,12 +130,11 @@
               >
                 {{ header.text }}
                 <img
+                  v-if="header?.item_child && header.item_child.length > 0"
                   :class="{ active: isActiveMenuItem(header.link) }"
                   style="padding-left: 10px"
-                  v-if="header?.item_child && header.item_child.length > 0"
-                  src="../../public/images/caret-down-solid.png"
-                  :alt="headerData.alt_caret"
-                  
+                  src="/images/caret-down-solid.png"
+                  :alt="headerData.logo_alt"
                   class="nav-icon"
                 />
                 <div
@@ -166,19 +164,14 @@
           </ul>
 
           <NuxtLink
-          v-if="headerData.button.is_show"
+            v-if="headerData.button.is_show"
             itemprop="url"
             :to="headerData.button.link"
             :target="headerData.button.open_new_tab ? '_blank' : ''"
             class="btn-book hidden-nav"
-            ><span class="book">{{ headerData.button.text }}</span></NuxtLink
           >
-          <!-- Logo Mobile -->
-
-          <!-- Search desktop -->
-          <!-- <div v-if="headerData.search.is_show" class="d-lg-none d-block position-relative">
-              <i @click="isSearchMobile = !isSearchMobile" class="bi bi-search " style="cursor: pointer;"></i>
-            </div> -->
+            <span class="book">{{ headerData.button.text }}</span>
+          </NuxtLink>
         </div>
       </nav>
     </div>

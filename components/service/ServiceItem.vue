@@ -52,7 +52,6 @@ const businessType = dataSite.value[firstKey].business_type.split('/')[lengthTyp
     block: any;
   }
   const props = defineProps<Props>();
-  console.log(props)
   </script>
   
 <style lang="scss" scoped>
