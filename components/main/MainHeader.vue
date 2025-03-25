@@ -134,8 +134,9 @@
                   :class="{ active: isActiveMenuItem(header.link) }"
                   style="padding-left: 10px"
                   v-if="header?.item_child && header.item_child.length > 0"
-                  :src="headerData.image_caret_down"
+                  src="../../public/images/caret-down-solid.png"
                   :alt="headerData.alt_caret"
+                  
                   class="nav-icon"
                 />
                 <div
