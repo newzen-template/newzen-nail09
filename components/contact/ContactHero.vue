@@ -95,7 +95,7 @@
                   item.status_error && fieldError[key] && !formState[key].value
                 "
               >
-                <span class="">{{ item.error }}</span>
+                <span style="color:red" class="">{{ item.error }}</span>
               </div>
             </div>
 
@@ -121,14 +121,20 @@
                   borderRadius: block.border ? `${block.border}px` : '0px',
                   color: block.color_text,
                 }"
+                :class="{
+                  'border-red-500':
+                    item.status_error === true &&
+                    ((fieldError[key] === true && !formState[key].value) ||
+                      errorPhone === true),
+                }"
                 style="box-shadow: 0 0 0 transparent; width: 100%"
               />
               <div v-if="item.status_error">
                 <div v-if="fieldError[key] && !formState[key].value">
-                  <span class="">{{ item.error }}</span>
+                  <span style="color:red" class="">{{ item.error }}</span>
                 </div>
                 <div v-else-if="errorEmail">
-                  <span class="">Invalid email format.</span>
+                  <span style="color:red " class="">Invalid email format.</span>
                 </div>
               </div>
             </div>
@@ -162,10 +168,10 @@
               />
               <div v-if="item.status_error">
                 <div v-if="fieldError[key] && !formState[key].value">
-                  <span class="">{{ item.error }}</span>
+                  <span style="color:red" class="">{{ item.error }}</span>
                 </div>
                 <div v-else-if="errorPhone">
-                  <span class="">Invalid phone number format.</span>
+                  <span style="color:red" class="">Invalid phone number format.</span>
                 </div>
               </div>
             </div>
@@ -190,6 +196,12 @@
                   borderRadius: block.border ? `${block.border}px` : '0px',
                   color: block.color_text,
                 }"
+                :class="{
+                  'border-red-500':
+                    item.status_error === true &&
+                    ((fieldError[key] === true && !formState[key].value) ||
+                      errorPhone === true),
+                }"
                 style="box-shadow: 0 0 0 transparent; width: 100%"
               ></textarea>
               <div
@@ -197,7 +209,7 @@
                   item.status_error && fieldError[key] && !formState[key].value
                 "
               >
-                <span class="">{{ item.error }}</span>
+                <span style="color:red" class="">{{ item.error }}</span>
               </div>
             </div>
             <div
@@ -559,11 +571,11 @@
             'justify-content-end': block.button.align_button === 'right',
           }"
         >
-          <UButton
+          <button
             :loading="isLoadingButton"
             @click="onSubmit"
             type="submit"
-            style="line-height: 30px"
+            style="line-height: 30px;border:none"
             class="custom_button_contact fw-medium fs-6"
             :style="{
               borderRadius: block.button.border
@@ -586,7 +598,7 @@
           >
             {{ block.button.text_button }}
             <img style="max-height: 16px" :src="block.button.image" />
-          </UButton>
+          </button>
         </div>
       </div>
       <!-- <div class="col-12 col-md-6 col-lg-6 width-mb" style="padding-left:12px">
@@ -1026,17 +1038,16 @@ const onSubmit = async () => {
       form_token: form_token,
       data_submission: data_submission,
     };
-    console.log(body);
 
-    // await $fetch(
-    //   "https://contact-form-api.nz-service01.dtsmart.dev/api/v1/form-submission",
-    //   {
-    //     method: "POST",
-    //     body: {
-    //       ...body,
-    //     },
-    //   }
-    // );
+    await $fetch(
+      "https://contact-form-api.nz-service01.dtsmart.dev/api/v1/form-submission",
+      {
+        method: "POST",
+        body: {
+          ...body,
+        },
+      }
+    );
     // clear data
     isLoadingButton.value = true;
     clearFormData();
@@ -1137,7 +1148,9 @@ img {
     margin-bottom: 3em !important;
   }
 }
-
+.border-red-500{
+  border: 2px solid red !important;
+}
 .file-drop-area {
   border: 2px dashed #ccc;
   padding: 20px;
